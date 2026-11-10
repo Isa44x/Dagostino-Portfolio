@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name — UX &amp; Graphic Design · Print Production</title>
+  <meta name="description" content="Portfolio of Your Name — UX design, graphic design and print production.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== DESK BACKGROUND ===== -->
+  <div class="desk">
+    <div class="desk__grain" aria-hidden="true"></div>
+
+    <!-- ===== FILE ===== -->
+    <main class="file" id="file">
+
+      <!-- Tab bar -->
+      <nav class="tabs" aria-label="Main navigation">
+        <ul class="tabs__list" role="tablist">
+          <li role="presentation">
+            <a class="tab" href="#about" role="tab" aria-controls="about" aria-selected="true" data-tab="about">About</a>
+          </li>
+          <li role="presentation">
+            <a class="tab" href="#portfolio" role="tab" aria-controls="portfolio" aria-selected="false" data-tab="portfolio">Portfolio</a>
+          </li>
+          <li role="presentation">
+            <a class="tab" href="#services" role="tab" aria-controls="services" aria-selected="false" data-tab="services">Services</a>
+          </li>
+          <li role="presentation">
+            <a class="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false" data-tab="contact">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Paper -->
+      <div class="paper">
+
+        <!-- ---------- ABOUT ---------- -->
+        <section class="panel" id="about" role="tabpanel" aria-labelledby="about" tabindex="0">
+          <header class="panel__head">
+            <p class="eyebrow">File 01 — About</p>
+            <h1>Hi, I'm Your Name.</h1>
+            <p class="lede">UX &amp; graphic designer with a print-production background.</p>
+          </header>
+
+          <div class="split">
+            <figure class="portrait">
+              <img src="portrait.jpg" alt="Portrait of Your Name" width="600" height="750">
+            </figure>
+            <div class="prose">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.</p>
+              <dl class="facts">
+                <div><dt>Based in</dt><dd>City, Country</dd></div>
+                <div><dt>Focus</dt><dd>UX · Branding · Print</dd></div>
+                <div><dt>Experience</dt><dd>X years</dd></div>
+              </dl>
+            </div>
+          </div>
+        </section>
+
+        <!-- ---------- PORTFOLIO ---------- -->
+        <section class="panel" id="portfolio" role="tabpanel" aria-labelledby="portfolio" tabindex="0" hidden>
+          <header class="panel__head">
+            <p class="eyebrow">File 02 — Portfolio</p>
+            <h2>Selected work</h2>
+            <p class="lede">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </header>
+
+          <div class="grid">
+            <article class="card">
+              <a href="#" class="card__link">
+                <img src="work-1.jpg" alt="Project one" width="800" height="600">
+                <div class="card__body">
+                  <h3>Project One</h3>
+                  <p>UX · Mobile app</p>
+                </div>
+              </a>
+            </article>
+            <article class="card">
+              <a href="#" class="card__link">
+                <img src="work-2.jpg" alt="Project two" width="800" height="600">
+                <div class="card__body">
+                  <h3>Project Two</h3>
+                  <p>Branding · Identity</p>
+                </div>
+              </a>
+            </article>
+            <article class="card">
+              <a href="#" class="card__link">
+                <img src="work-3.jpg" alt="Project three" width="800" height="600">
+                <div class="card__body">
+                  <h3>Project Three</h3>
+                  <p>Print · Packaging</p>
+                </div>
+              </a>
+            </article>
+            <article class="card">
+              <a href="#" class="card__link">
+                <img src="work-4.jpg" alt="Project four" width="800" height="600">
+                <div class="card__body">
+                  <h3>Project Four</h3>
+                  <p>UX · Web platform</p>
+                </div>
+              </a>
+            </article>
+            <article class="card">
+              <a href="#" class="card__link">
+                <img src="work-5.jpg" alt="Project five" width="800" height="600">
+                <div class="card__body">
+                  <h3>Project Five</h3>
+                  <p>Editorial · Layout</p>
+                </div>
+              </a>
+            </article>
+            <article class="card">
+              <a href="#" class="card__link">
+                <img src="work-6.jpg" alt="Project six" width="800" height="600">
+                <div class="card__body">
+                  <h3>Project Six</h3>
+                  <p>Print · Production</p>
+                </div>
+              </a>
+            </article>
+          </div>
+        </section>
+
+        <!-- ---------- SERVICES ---------- -->
+        <section class="panel" id="services" role="tabpanel" aria-labelledby="services" tabindex="0" hidden>
+          <header class="panel__head">
+            <p class="eyebrow">File 03 — Services</p>
+            <h2>What I do</h2>
+            <p class="lede">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </header>
+
+          <ul class="services">
+            <li>
+              <h3>UX Design</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Wireframes, prototypes, usability testing.</p>
+            </li>
+            <li>
+              <h3>Graphic Design</h3>
+              <p>Sed do eiusmod tempor incididunt ut labore et dolore. Identity systems, editorial, digital assets.</p>
+            </li>
+            <li>
+              <h3>Print Production</h3>
+              <p>Ut enim ad minim veniam, quis nostrud exercitation. Prepress, colour management, press checks.</p>
+            </li>
+          </ul>
+        </section>
+
+        <!-- ---------- CONTACT ---------- -->
+        <section class="panel" id="contact" role="tabpanel" aria-labelledby="contact" tabindex="0" hidden>
+          <header class="panel__head">
+            <p class="eyebrow">File 04 — Contact</p>
+            <h2>Let's talk</h2>
+            <p class="lede">Lorem ipsum dolor sit amet — available for freelance and full-time.</p>
+          </header>
+
+          <div class="split split--contact">
+            <form class="form" action="#" method="post">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required>
+
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+
+              <button type="submit" class="btn">Send message</button>
+            </form>
+
+            <div class="prose">
+              <h3>Direct</h3>
+              <p><a href="mailto:hello@example.com">hello@example.com</a></p>
+              <h3>Elsewhere</h3>
+              <ul class="links">
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Behance</a></li>
+                <li><a href="#">LinkedIn</a></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <footer class="colophon">
+          <span>© 2026 Your Name</span>
+          <span>Set in Fraunces &amp; Work Sans</span>
+        </footer>
+
+      </div><!-- /paper -->
+    </main>
+  </div><!-- /desk -->
+
+  <script>
+    // Tab switching: hides/shows panels, updates aria + hash
+    (function () {
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+      var panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
+
+      function activate(id, push) {
+        var match = panels.filter(function (p) { return p.id === id; })[0];
+        if (!match) return;
+
+        panels.forEach(function (p) { p.hidden = (p !== match); });
+        tabs.forEach(function (t) {
+          var on = t.dataset.tab === id;
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+          t.classList.toggle('is-active', on);
+        });
+        if (push && history.replaceState) history.replaceState(null, '', '#' + id);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      tabs.forEach(function (t) {
+        t.addEventListener('click', function (e) {
+          e.preventDefault();
+          activate(t.dataset.tab, true);
+        });
+        // keyboard: left/right arrows
+        t.addEventListener('keydown', function (e) {
+          var i = tabs.indexOf(t);
+          if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+            e.preventDefault();
+            var next = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+            next.focus();
+            activate(next.dataset.tab, true);
+          }
+        });
+      });
+
+      var initial = location.hash.replace('#', '');
+      activate(initial && document.getElementById(initial) ? initial : 'about', false);
+    })();
+  </script>
+</body>
+</html>
