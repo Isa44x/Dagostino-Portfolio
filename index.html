@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Name — UX &amp; Graphic Design · Print Production</title>
-  <meta name="description" content="Portfolio of Your Name — UX design, graphic design and print production.">
+  <title>Your Name — UX, Graphic Design &amp; Print Production</title>
+  <meta name="description" content="Portfolio of Your Name — screenwriting, video production, graphic design and UX design.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -12,170 +12,285 @@
 </head>
 <body>
 
-  <!-- ===== DESK BACKGROUND ===== -->
   <div class="desk">
     <div class="desk__grain" aria-hidden="true"></div>
 
-    <!-- ===== FILE ===== -->
-    <main class="file" id="file">
+    <main class="file">
 
-      <!-- Tab bar -->
+      <!-- ===== TABS ===== -->
       <nav class="tabs" aria-label="Main navigation">
         <ul class="tabs__list" role="tablist">
-          <li role="presentation">
-            <a class="tab" href="#about" role="tab" aria-controls="about" aria-selected="true" data-tab="about">About</a>
-          </li>
-          <li role="presentation">
-            <a class="tab" href="#portfolio" role="tab" aria-controls="portfolio" aria-selected="false" data-tab="portfolio">Portfolio</a>
-          </li>
-          <li role="presentation">
-            <a class="tab" href="#services" role="tab" aria-controls="services" aria-selected="false" data-tab="services">Services</a>
-          </li>
-          <li role="presentation">
-            <a class="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false" data-tab="contact">Contact</a>
-          </li>
+          <li role="presentation"><a class="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" data-tab="home">Home</a></li>
+          <li role="presentation"><a class="tab" href="#about" role="tab" aria-controls="about" aria-selected="false" data-tab="about">About</a></li>
+          <li role="presentation"><a class="tab" href="#portfolio" role="tab" aria-controls="portfolio" aria-selected="false" data-tab="portfolio">Portfolio</a></li>
+          <li role="presentation"><a class="tab" href="#services" role="tab" aria-controls="services" aria-selected="false" data-tab="services">Services</a></li>
+          <li role="presentation"><a class="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false" data-tab="contact">Contact</a></li>
         </ul>
       </nav>
 
-      <!-- Paper -->
       <div class="paper">
 
-        <!-- ---------- ABOUT ---------- -->
-        <section class="panel" id="about" role="tabpanel" aria-labelledby="about" tabindex="0">
+        <!-- ============ HOME / COVER ============ -->
+        <section class="panel" id="home" role="tabpanel" tabindex="0">
+          <div class="cover">
+            <div class="cover__text">
+              <p class="eyebrow">Portfolio — 2026</p>
+              <h1>Nice to meet you.<br>I'm Your Name.</h1>
+              <p class="lede">Designer and storyteller working across UX, graphic design, print production, screenwriting and video. I take ideas from first sketch to finished, printed, shipped thing.</p>
+              <div class="cover__actions">
+                <a class="btn" href="#portfolio" data-goto="portfolio">View work</a>
+                <a class="btn btn--ghost" href="#contact" data-goto="contact">Get in touch</a>
+              </div>
+              <ul class="cover__meta">
+                <li>UX &amp; Product Design</li>
+                <li>Brand &amp; Print</li>
+                <li>Screenwriting</li>
+                <li>Video Production</li>
+              </ul>
+            </div>
+            <figure class="cover__figure">
+              <img src="portrait.jpg" alt="Portrait of Your Name" width="700" height="880">
+            </figure>
+          </div>
+        </section>
+
+        <!-- ============ ABOUT ============ -->
+        <section class="panel" id="about" role="tabpanel" tabindex="0" hidden>
           <header class="panel__head">
             <p class="eyebrow">File 01 — About</p>
-            <h1>Hi, I'm Your Name.</h1>
-            <p class="lede">UX &amp; graphic designer with a print-production background.</p>
+            <h2>About me</h2>
+            <p class="lede">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Design, print and story in equal measure.</p>
           </header>
 
           <div class="split">
-            <figure class="portrait">
-              <img src="portrait.jpg" alt="Portrait of Your Name" width="600" height="750">
-            </figure>
             <div class="prose">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
               <dl class="facts">
                 <div><dt>Based in</dt><dd>City, Country</dd></div>
-                <div><dt>Focus</dt><dd>UX · Branding · Print</dd></div>
+                <div><dt>Focus</dt><dd>UX · Brand · Print · Film</dd></div>
                 <div><dt>Experience</dt><dd>X years</dd></div>
+                <div><dt>Tools</dt><dd>Figma, InDesign, Illustrator, Premiere</dd></div>
               </dl>
             </div>
+            <figure class="portrait">
+              <img src="portrait.jpg" alt="Your Name at work" width="600" height="750">
+            </figure>
           </div>
+
+          <!-- Studio wall: loose, unaligned photo strip -->
+          <section class="wall" aria-labelledby="wall-title">
+            <h3 id="wall-title" class="wall__title">In the studio</h3>
+            <p class="wall__intro">Awards, press checks, late nights on set — a few things that shaped how I work.</p>
+
+            <div class="wall__grid">
+              <figure class="shot shot--a">
+                <img src="studio-1.jpg" alt="Holding an award" width="800" height="600">
+                <figcaption>Award for editorial design, 2025.</figcaption>
+              </figure>
+              <figure class="shot shot--b">
+                <img src="studio-2.jpg" alt="On set with camera equipment" width="600" height="800">
+                <figcaption>Second unit, short film shoot — camera and lighting.</figcaption>
+              </figure>
+              <figure class="shot shot--c">
+                <img src="studio-3.jpg" alt="Press check at a print shop" width="800" height="600">
+                <figcaption>Press check: matching spot colour on uncoated stock.</figcaption>
+              </figure>
+              <figure class="shot shot--d">
+                <img src="studio-4.jpg" alt="Sketchbook and wireframes" width="800" height="600">
+                <figcaption>Early wireframes before a usability round.</figcaption>
+              </figure>
+              <figure class="shot shot--e">
+                <img src="studio-5.jpg" alt="Printed sample books" width="600" height="800">
+                <figcaption>Paper tests for a brand identity system.</figcaption>
+              </figure>
+              <figure class="shot shot--f">
+                <img src="studio-6.jpg" alt="Studio desk" width="800" height="600">
+                <figcaption>Where most of it happens.</figcaption>
+            </figure>
+            </div>
+          </section>
         </section>
 
-        <!-- ---------- PORTFOLIO ---------- -->
-        <section class="panel" id="portfolio" role="tabpanel" aria-labelledby="portfolio" tabindex="0" hidden>
+        <!-- ============ PORTFOLIO ============ -->
+        <section class="panel" id="portfolio" role="tabpanel" tabindex="0" hidden>
           <header class="panel__head">
             <p class="eyebrow">File 02 — Portfolio</p>
             <h2>Selected work</h2>
-            <p class="lede">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p class="lede">Four disciplines, six slots each. Click any project for details.</p>
           </header>
 
-          <div class="grid">
-            <article class="card">
-              <a href="#" class="card__link">
-                <img src="work-1.jpg" alt="Project one" width="800" height="600">
-                <div class="card__body">
-                  <h3>Project One</h3>
-                  <p>UX · Mobile app</p>
-                </div>
-              </a>
-            </article>
-            <article class="card">
-              <a href="#" class="card__link">
-                <img src="work-2.jpg" alt="Project two" width="800" height="600">
-                <div class="card__body">
-                  <h3>Project Two</h3>
-                  <p>Branding · Identity</p>
-                </div>
-              </a>
-            </article>
-            <article class="card">
-              <a href="#" class="card__link">
-                <img src="work-3.jpg" alt="Project three" width="800" height="600">
-                <div class="card__body">
-                  <h3>Project Three</h3>
-                  <p>Print · Packaging</p>
-                </div>
-              </a>
-            </article>
-            <article class="card">
-              <a href="#" class="card__link">
-                <img src="work-4.jpg" alt="Project four" width="800" height="600">
-                <div class="card__body">
-                  <h3>Project Four</h3>
-                  <p>UX · Web platform</p>
-                </div>
-              </a>
-            </article>
-            <article class="card">
-              <a href="#" class="card__link">
-                <img src="work-5.jpg" alt="Project five" width="800" height="600">
-                <div class="card__body">
-                  <h3>Project Five</h3>
-                  <p>Editorial · Layout</p>
-                </div>
-              </a>
-            </article>
-            <article class="card">
-              <a href="#" class="card__link">
-                <img src="work-6.jpg" alt="Project six" width="800" height="600">
-                <div class="card__body">
-                  <h3>Project Six</h3>
-                  <p>Print · Production</p>
-                </div>
-              </a>
-            </article>
-          </div>
+          <!-- ---- Screenwriting ---- -->
+          <section class="group" aria-labelledby="g-screen">
+            <div class="group__head">
+              <h3 id="g-screen">Screenwriting</h3>
+              <span class="rule" aria-hidden="true"></span>
+            </div>
+            <div class="grid">
+              <button class="card" type="button" data-title="Script One" data-meta="Feature · Drama · 2025" data-desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Logline, role and outcome go here. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." data-img="screen-1.jpg">
+                <img src="screen-1.jpg" alt="" width="800" height="600">
+                <span class="card__body"><strong>Script One</strong><span>Feature · Drama</span></span>
+              </button>
+              <button class="card" type="button" data-title="Script Two" data-meta="Short · Thriller · 2024" data-desc="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Add synopsis and festival notes here." data-img="screen-2.jpg">
+                <img src="screen-2.jpg" alt="" width="800" height="600">
+                <span class="card__body"><strong>Script Two</strong><span>Short · Thriller</span></span>
+              </button>
+              <button class="card" type="button" data-title="Script Three" data-meta="Pilot · Comedy · 2024" data-desc="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore." data-img="screen-3.jpg">
+                <img src="screen-3.jpg" alt="" width="800" height="600">
+                <span class="card__body"><strong>Script Three</strong><span>Pilot · Comedy</span></span>
+              </button>
+              <button class="card" type="button" data-title="Script Four" data-meta="Documentary · 2023" data-desc="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." data-img="screen-4.jpg">
+                <img src="screen-4.jpg" alt="" width="800" height="600">
+                <span class="card__body"><strong>Script Four</strong><span>Documentary</span></span>
+              </button>
+              <button class="card" type="button" data-title="Script Five" data-meta="Spec · Sci-fi · 2023" data-desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit." data-img="screen-5.jpg">
+                <img src="screen-5.jpg" alt="" width="800" height="600">
+                <span class="card__body"><strong>Script Five</strong><span>Spec · Sci-fi</span></span>
+              </button>
+              <button class="card" type="button" data-title="Script Six" data-meta="Reserved slot" data-desc="Empty slot — add your next project here." data-img="screen-6.jpg">
+                <img src="screen-6.jpg" alt="" width="800" height="600">
+                <span class="card__body"><strong>Script Six</strong><span>Open slot</span></span>
+              </button>
+            </div>
+          </section>
+
+          <!-- ---- Video Production ---- -->
+          <section class="group" aria-labelledby="g-video">
+            <div class="group__head">
+              <h3 id="g-video">Video Production</h3>
+              <span class="rule" aria-hidden="true"></span>
+            </div>
+            <div class="grid">
+              <button class="card" type="button" data-title="Film One" data-meta="Director · Short · 2025" data-desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Crew size, format and deliverables go here." data-img="video-1.jpg">
+                <img src="video-1.jpg" alt="" width="800" height="600">
+                <span class="card__body"><strong>Film One</strong><span>Director · Short</span></span>
+              </button>
+              <button class="card" type="button" data-title="Film Two" data-meta="Editor · Brand film" data-desc="Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." data-img="video-2.jpg">
+                <img src="video-2.jpg" alt="" width="800" height="600">
+                <span class="card__body"><strong>Film Two</strong><span>Editor · Brand film</span></span>
+              </button>
+              <button class="card" type="button" data-title="Film Three" data-meta="Producer · Music video" data-desc="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris." data-img="video-3.jpg">
+                <img src="video-3.jpg" alt="" width="800" height="600">
+                <span class="card__body"><strong>Film Three</strong><span>Producer · Music video</span></span>
+              </button>
+              <button class="card" type="button" data-title="Film Four" data-meta="Camera · Documentary" data-desc="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum." data-img="video-4.jpg">
+                <img src="video-4.jpg" alt="" width="800" height="600">
+                <span class="card__body"><strong>Film Four</strong><span>Camera · Documentary</span></span>
+              </button>
+              <button class="card" type="button" data-title="Film Five" data-meta="Reserved slot" data-desc="Empty slot — add your next project here." data-img="video-5.jpg">
+                <img src="video-5.jpg" alt="" width="800" height="600">
+                <span class="card__body"><strong>Film Five</strong><span>Open slot</span></span>
+              </button>
+              <button class="card" type="button" data-title="Film Six" data-meta="Reserved slot" data-desc="Empty slot — add your next project here." data-img="video-6.jpg">
+                <img src="video-6.jpg" alt="" width="800" height="600">
+                <span class="card__body"><strong>Film Six</strong><span>Open slot</span></span>
+              </button>
+            </div>
+          </section>
+
+          <!-- ---- Graphic Design ---- -->
+          <section class="group" aria-labelledby="g-graphic">
+            <div class="group__head">
+              <h3 id="g-graphic">Graphic Design</h3>
+              <span class="rule" aria-hidden="true"></span>
+            </div>
+            <div class="grid">
+              <button class="card" type="button" data-title="Identity One" data-meta="Branding · 2025" data-desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deliverables, print specs and outcome go here." data-img="graphic-1.jpg">
+                <img src="graphic-1.jpg" alt="" width="800" height="600">
+                <span class="card__body"><strong>Identity One</strong><span>Branding</span></span>
+              </button>
+              <button class="card" type="button" data-title="Editorial Two" data-meta="Print · Publication" data-desc="Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." data-img="graphic-2.jpg">
+                <img src="graphic-2.jpg" alt="" width="800" height="600">
+                <span class="card__body"><strong>Editorial Two</strong><span>Print · Publication</span></span>
+              </button>
+              <button class="card" type="button" data-title="Packaging Three" data-meta="Packaging · Print production" data-desc="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris." data-img="graphic-3.jpg">
+                <img src="graphic-3.jpg" alt="" width="800" height="600">
+                <span class="card__body"><strong>Packaging Three</strong><span>Packaging</span></span>
+              </button>
+              <button class="card" type="button" data-title="Poster Four" data-meta="Campaign · 2024" data-desc="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum." data-img="graphic-4.jpg">
+                <img src="graphic-4.jpg" alt="" width="800" height="600">
+                <span class="card__body"><strong>Poster Four</strong><span>Campaign</span></span>
+              </button>
+              <button class="card" type="button" data-title="Type Five" data-meta="Type design" data-desc="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." data-img="graphic-5.jpg">
+                <img src="graphic-5.jpg" alt="" width="800" height="600">
+                <span class="card__body"><strong>Type Five</strong><span>Type design</span></span>
+              </button>
+              <button class="card" type="button" data-title="Reserved Six" data-meta="Open slot" data-desc="Empty slot — add your next project here." data-img="graphic-6.jpg">
+                <img src="graphic-6.jpg" alt="" width="800" height="600">
+                <span class="card__body"><strong>Reserved Six</strong><span>Open slot</span></span>
+              </button>
+            </div>
+          </section>
+
+          <!-- ---- UX Projects ---- -->
+          <section class="group" aria-labelledby="g-ux">
+            <div class="group__head">
+              <h3 id="g-ux">UX Projects</h3>
+              <span class="rule" aria-hidden="true"></span>
+            </div>
+            <div class="grid">
+              <button class="card" type="button" data-title="Case Study One" data-meta="Mobile app · 2025" data-desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Problem, research, solution and measurable outcome go here — this slot is sized for a full case study." data-img="ux-1.jpg">
+                <img src="ux-1.jpg" alt="" width="800" height="600">
+                <span class="card__body"><strong>Case Study One</strong><span>Mobile app</span></span>
+              </button>
+              <button class="card" type="button" data-title="Case Study Two" data-meta="Web platform · 2025" data-desc="Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." data-img="ux-2.jpg">
+                <img src="ux-2.jpg" alt="" width="800" height="600">
+                <span class="card__body"><strong>Case Study Two</strong><span>Web platform</span></span>
+              </button>
+              <button class="card" type="button" data-title="Case Study Three" data-meta="Design system · 2024" data-desc="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris." data-img="ux-3.jpg">
+                <img src="ux-3.jpg" alt="" width="800" height="600">
+                <span class="card__body"><strong>Case Study Three</strong><span>Design system</span></span>
+              </button>
+              <button class="card" type="button" data-title="Case Study Four" data-meta="Research · 2024" data-desc="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum." data-img="ux-4.jpg">
+                <img src="ux-4.jpg" alt="" width="800" height="600">
+                <span class="card__body"><strong>Case Study Four</strong><span>Research</span></span>
+              </button>
+              <button class="card" type="button" data-title="Case Study Five" data-meta="Service design · 2023" data-desc="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." data-img="ux-5.jpg">
+                <img src="ux-5.jpg" alt="" width="800" height="600">
+                <span class="card__body"><strong>Case Study Five</strong><span>Service design</span></span>
+              </button>
+              <button class="card" type="button" data-title="Reserved Six" data-meta="Open slot" data-desc="Empty slot — add your next case study here." data-img="ux-6.jpg">
+                <img src="ux-6.jpg" alt="" width="800" height="600">
+                <span class="card__body"><strong>Reserved Six</strong><span>Open slot</span></span>
+              </button>
+            </div>
+          </section>
         </section>
 
-        <!-- ---------- SERVICES ---------- -->
-        <section class="panel" id="services" role="tabpanel" aria-labelledby="services" tabindex="0" hidden>
+        <!-- ============ SERVICES ============ -->
+        <section class="panel" id="services" role="tabpanel" tabindex="0" hidden>
           <header class="panel__head">
             <p class="eyebrow">File 03 — Services</p>
             <h2>What I do</h2>
             <p class="lede">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </header>
-
           <ul class="services">
-            <li>
-              <h3>UX Design</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Wireframes, prototypes, usability testing.</p>
-            </li>
-            <li>
-              <h3>Graphic Design</h3>
-              <p>Sed do eiusmod tempor incididunt ut labore et dolore. Identity systems, editorial, digital assets.</p>
-            </li>
-            <li>
-              <h3>Print Production</h3>
-              <p>Ut enim ad minim veniam, quis nostrud exercitation. Prepress, colour management, press checks.</p>
-            </li>
+            <li><h3>UX Design</h3><p>Research, wireframes, prototypes, usability testing and design systems.</p></li>
+            <li><h3>Graphic Design</h3><p>Identity systems, editorial layout, packaging and campaign assets.</p></li>
+            <li><h3>Print Production</h3><p>Prepress, colour management, stock selection and press checks.</p></li>
+            <li><h3>Screenwriting</h3><p>Features, shorts, pilots and documentary treatments.</p></li>
+            <li><h3>Video Production</h3><p>Directing, camera, editing and post-production delivery.</p></li>
+            <li><h3>Art Direction</h3><p>End-to-end visual direction across screen and print.</p></li>
           </ul>
         </section>
 
-        <!-- ---------- CONTACT ---------- -->
-        <section class="panel" id="contact" role="tabpanel" aria-labelledby="contact" tabindex="0" hidden>
+        <!-- ============ CONTACT ============ -->
+        <section class="panel" id="contact" role="tabpanel" tabindex="0" hidden>
           <header class="panel__head">
             <p class="eyebrow">File 04 — Contact</p>
             <h2>Let's talk</h2>
-            <p class="lede">Lorem ipsum dolor sit amet — available for freelance and full-time.</p>
+            <p class="lede">Available for freelance and full-time work.</p>
           </header>
-
           <div class="split split--contact">
             <form class="form" action="#" method="post">
               <label for="name">Name</label>
               <input id="name" name="name" type="text" autocomplete="name" required>
-
               <label for="email">Email</label>
               <input id="email" name="email" type="email" autocomplete="email" required>
-
               <label for="message">Message</label>
               <textarea id="message" name="message" rows="5" required></textarea>
-
               <button type="submit" class="btn">Send message</button>
             </form>
-
             <div class="prose">
               <h3>Direct</h3>
               <p><a href="mailto:hello@example.com">hello@example.com</a></p>
@@ -184,6 +299,7 @@
                 <li><a href="#">Instagram</a></li>
                 <li><a href="#">Behance</a></li>
                 <li><a href="#">LinkedIn</a></li>
+                <li><a href="#">Vimeo</a></li>
               </ul>
             </div>
           </div>
@@ -193,21 +309,33 @@
           <span>© 2026 Your Name</span>
           <span>Set in Fraunces &amp; Work Sans</span>
         </footer>
-
-      </div><!-- /paper -->
+      </div>
     </main>
-  </div><!-- /desk -->
+  </div>
+
+  <!-- ===== PROJECT MODAL ===== -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal__close" type="button" aria-label="Close" data-close>&times;</button>
+      <img class="modal__img" id="modal-img" src="" alt="">
+      <div class="modal__body">
+        <p class="eyebrow" id="modal-meta"></p>
+        <h3 id="modal-title"></h3>
+        <p id="modal-desc"></p>
+      </div>
+    </div>
+  </div>
 
   <script>
-    // Tab switching: hides/shows panels, updates aria + hash
     (function () {
-      var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
-      var panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
+      /* ---------- Tabs ---------- */
+      var tabs = [].slice.call(document.querySelectorAll('.tab'));
+      var panels = [].slice.call(document.querySelectorAll('.panel'));
 
       function activate(id, push) {
         var match = panels.filter(function (p) { return p.id === id; })[0];
         if (!match) return;
-
         panels.forEach(function (p) { p.hidden = (p !== match); });
         tabs.forEach(function (t) {
           var on = t.dataset.tab === id;
@@ -219,24 +347,62 @@
       }
 
       tabs.forEach(function (t) {
-        t.addEventListener('click', function (e) {
-          e.preventDefault();
-          activate(t.dataset.tab, true);
-        });
-        // keyboard: left/right arrows
+        t.addEventListener('click', function (e) { e.preventDefault(); activate(t.dataset.tab, true); });
         t.addEventListener('keydown', function (e) {
           var i = tabs.indexOf(t);
           if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
             e.preventDefault();
             var next = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
-            next.focus();
-            activate(next.dataset.tab, true);
+            next.focus(); activate(next.dataset.tab, true);
           }
         });
       });
 
+      // in-page buttons that jump to a tab
+      [].slice.call(document.querySelectorAll('[data-goto]')).forEach(function (b) {
+        b.addEventListener('click', function (e) { e.preventDefault(); activate(b.dataset.goto, true); });
+      });
+
       var initial = location.hash.replace('#', '');
-      activate(initial && document.getElementById(initial) ? initial : 'about', false);
+      activate(initial && document.getElementById(initial) ? initial : 'home', false);
+
+      /* ---------- Project modal ---------- */
+      var modal = document.getElementById('modal');
+      var mImg = document.getElementById('modal-img');
+      var mTitle = document.getElementById('modal-title');
+      var mMeta = document.getElementById('modal-meta');
+      var mDesc = document.getElementById('modal-desc');
+      var lastFocus = null;
+
+      function openModal(card) {
+        lastFocus = card;
+        mTitle.textContent = card.dataset.title || '';
+        mMeta.textContent = card.dataset.meta || '';
+        mDesc.textContent = card.dataset.desc || '';
+        if (card.dataset.img) { mImg.src = card.dataset.img; mImg.style.display = ''; }
+        else { mImg.style.display = 'none'; }
+        modal.hidden = false;
+        document.body.classList.add('no-scroll');
+        modal.querySelector('.modal__close').focus();
+      }
+
+      function closeModal() {
+        modal.hidden = true;
+        document.body.classList.remove('no-scroll');
+        if (lastFocus) lastFocus.focus();
+      }
+
+      [].slice.call(document.querySelectorAll('.card')).forEach(function (c) {
+        c.addEventListener('click', function () { openModal(c); });
+      });
+
+      modal.addEventListener('click', function (e) {
+        if (e.target.hasAttribute('data-close')) closeModal();
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !modal.hidden) closeModal();
+      });
     })();
   </script>
 </body>
