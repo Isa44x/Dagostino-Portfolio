@@ -449,11 +449,14 @@ function launchFireworks(button) {
   document.body.appendChild(burst);
   window.setTimeout(function () { burst.remove(); }, 750);
 }
-
-[].slice.call(document.querySelectorAll('[data-goto]')).forEach(function (b) {
+    [].slice.call(document.querySelectorAll('[data-goto]')).forEach(function (b) {
   b.addEventListener('click', function (e) {
     e.preventDefault();
-    if (b.hasAttribute('data-fireworks')) launchFireworks(b);
+
+    if (b.hasAttribute('data-fireworks')) {
+      launchFireworks(b);
+    }
+
     activate(b.dataset.goto, true);
   });
 });
