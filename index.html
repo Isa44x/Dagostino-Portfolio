@@ -212,7 +212,7 @@
           <header class="panel__head">
             <p class="eyebrow">Page — Portfolio</p>
             <h2>Selected work</h2>
-            <p class="lede">Four disciplines, six slots each. Click any project for details.</p>
+            <p class="lede">Click any project for details.</p>
           </header>
 
           <!-- ---- Screenwriting ---- -->
@@ -296,35 +296,56 @@
           </section>
 
           <!-- ---- UX Projects ---- -->
-          <section class="group" aria-labelledby="g-ux">
-            <div class="group__head">
-              <h3 id="g-ux">UX Projects</h3>
-              <span class="rule" aria-hidden="true"></span>
-            </div>
+<section class="group" aria-labelledby="g-ux">
+  <div class="group__head">
+    <h3 id="g-ux">UX Projects</h3>
+    <span class="rule" aria-hidden="true"></span>
+  </div>
 
-            <div class="grid">
-              <button class="card" type="button" data-title="Case Study One" data-meta="Mobile app · 2025" data-desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Problem, research, solution and outcome belong here." data-img="ux-1.jpg">
-                <img src="ux-1.jpg" alt="" width="800" height="600">
-                <span class="card__body"><strong>Case Study One</strong><span>Mobile app</span></span>
-              </button>
+  <div class="grid">
+    <!-- Add data-images="img1.jpg,img2.jpg,img3.jpg" to each button -->
+    <button class="card" type="button" 
+            data-title="Case Study One" 
+            data-meta="Mobile app · 2025" 
+            data-desc="Lorem ipsum dolor sit amet..." 
+            data-img="ux-1.jpg"
+            data-images="ux-1-1.jpg,ux-1-2.jpg,ux-1-3.jpg">
+      <img src="ux-1.jpg" alt="" width="800" height="600">
+      <span class="card__body"><strong>Case Study One</strong><span>Mobile app</span></span>
+    </button>
 
-              <button class="card" type="button" data-title="Case Study Two" data-meta="Web platform · 2025" data-desc="Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." data-img="ux-2.jpg">
-                <img src="ux-2.jpg" alt="" width="800" height="600">
-                <span class="card__body"><strong>Case Study Two</strong><span>Web platform</span></span>
-              </button>
+    <button class="card" type="button" 
+            data-title="Case Study Two" 
+            data-meta="Web platform · 2025" 
+            data-desc="Sed do eiusmod tempor incididunt..." 
+            data-img="ux-2.jpg"
+            data-images="ux-2-1.jpg,ux-2-2.jpg,ux-2-3.jpg">
+      <img src="ux-2.jpg" alt="" width="800" height="600">
+      <span class="card__body"><strong>Case Study Two</strong><span>Web platform</span></span>
+    </button>
 
-              <button class="card" type="button" data-title="Case Study Three" data-meta="Design system · 2024" data-desc="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris." data-img="ux-3.jpg">
-                <img src="ux-3.jpg" alt="" width="800" height="600">
-                <span class="card__body"><strong>Case Study Three</strong><span>Design system</span></span>
-              </button>
+    <button class="card" type="button" 
+            data-title="Case Study Three" 
+            data-meta="Design system · 2024" 
+            data-desc="Ut enim ad minim veniam..." 
+            data-img="ux-3.jpg"
+            data-images="ux-3-1.jpg,ux-3-2.jpg,ux-3-3.jpg">
+      <img src="ux-3.jpg" alt="" width="800" height="600">
+      <span class="card__body"><strong>Case Study Three</strong><span>Design system</span></span>
+    </button>
 
-              <button class="card" type="button" data-title="Case Study Four" data-meta="Research · 2024" data-desc="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum." data-img="ux-4.jpg">
-                <img src="ux-4.jpg" alt="" width="800" height="600">
-                <span class="card__body"><strong>Case Study Four</strong><span>Research</span></span>
-              </button>
-            </div>
-          </section>
-        </section>
+    <button class="card" type="button" 
+            data-title="Case Study Four" 
+            data-meta="Research · 2024" 
+            data-desc="Duis aute irure dolor..." 
+            data-img="ux-4.jpg"
+            data-images="ux-4-1.jpg,ux-4-2.jpg,ux-4-3.jpg">
+      <img src="ux-4.jpg" alt="" width="800" height="600">
+      <span class="card__body"><strong>Case Study Four</strong><span>Research</span></span>
+    </button>
+  </div>
+</section>
+
 
         <!-- ============ SERVICES ============ -->
         <section class="panel" id="services" role="tabpanel" tabindex="0" hidden>
@@ -572,39 +593,57 @@ function launchFireworks(button) {
     </div>
   </div>
 </div>
-
-  // Select elements
-const modal = document.getElementById("project-modal");
+<div id="project-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <img id="modal-main-img" src="" alt="Project Main">
+    <div class="modal-thumbnails" id="modal-thumbs"></div>
+    <div class="modal-details">
+      <h3 id="modal-title"></h3>
+      <p id="modal-desc"></p>
+    </div>
+  </div>
+</div>
+      
+<script>
+      const modal = document.getElementById("project-modal");
 const closeBtn = document.querySelector(".close-btn");
 const mainImg = document.getElementById("modal-main-img");
-const thumbs = document.querySelectorAll(".thumb");
+const thumbsContainer = document.getElementById("modal-thumbs");
+const titleEl = document.getElementById("modal-title");
+const descEl = document.getElementById("modal-desc");
 
-// Function to open modal
-function openModal(title, desc, mainSrc, thumb1, thumb2, thumb3) {
-  document.getElementById("modal-title").innerText = title;
-  document.getElementById("modal-desc").innerText = desc;
-  mainImg.src = mainSrc;
-  
-  // Set thumbnails
-  thumbs[0].src = thumb1;
-  thumbs[1].src = thumb2;
-  thumbs[2].src = thumb3;
-  
-  // Reset active state
-  thumbs.forEach(t => t.classList.remove('active'));
-  thumbs[0].classList.add('active');
+// Open Modal
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('click', () => {
+    const title = card.dataset.title;
+    const desc = card.dataset.desc;
+    const mainSrc = card.dataset.img;
+    const images = card.dataset.images ? card.dataset.images.split(',') : [];
 
-  modal.style.display = "block";
-}
+    titleEl.innerText = title;
+    descEl.innerText = desc;
+    mainImg.src = mainSrc;
 
-// Function to swap images
-function changeImage(thumb) {
-  mainImg.src = thumb.src;
-  thumbs.forEach(t => t.classList.remove('active'));
-  thumb.classList.add('active');
-}
+    // Create thumbnails
+    thumbsContainer.innerHTML = '';
+    images.forEach((src, index) => {
+      const thumb = document.createElement('img');
+      thumb.src = src;
+      thumb.className = 'thumb' + (index === 0 ? ' active' : '');
+      thumb.onclick = function() {
+        mainImg.src = src;
+        document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+      };
+      thumbsContainer.appendChild(thumb);
+    });
 
-// Close modal
+    modal.style.display = "block";
+  });
+});
+
+// Close Modal
 closeBtn.onclick = function() {
   modal.style.display = "none";
 }
@@ -613,6 +652,5 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
-  
-</body>
+    </body>
 </html>
