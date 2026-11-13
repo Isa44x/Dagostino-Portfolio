@@ -445,127 +445,174 @@
   </script>
 
   <script>
-
-function launchFireworks(button) {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  var rect = button.getBoundingClientRect();
-  var burst = document.createElement('span');
-  burst.className = 'fireworks-burst';
-  burst.setAttribute('aria-hidden', 'true');
-  burst.style.left = (rect.left + rect.width / 2) + 'px';
-  burst.style.top = (rect.top + rect.height / 2) + 'px';
-
-  for (var i = 0; i < 12; i++) {
-    var particle = document.createElement('i');
-    var angle = (Math.PI * 2 * i) / 12;
-    var distance = 28 + Math.random() * 32;
-
-    particle.style.setProperty('--dx', Math.cos(angle) * distance + 'px');
-    particle.style.setProperty('--dy', Math.sin(angle) * distance + 'px');
-    particle.style.setProperty('--hue', Math.round(Math.random() * 360));
-    burst.appendChild(particle);
-  }
-
-  document.body.appendChild(burst);
-  window.setTimeout(function () { burst.remove(); }, 750);
-}
-    [].slice.call(document.querySelectorAll('[data-goto]')).forEach(function (b) {
-  b.addEventListener('click', function (e) {
-    e.preventDefault();
-
-    if (b.hasAttribute('data-fireworks')) {
-      launchFireworks(b);
-    }
-
-    activate(b.dataset.goto, true);
-  });
-});
-    
     (function () {
-      /* ---------- Tabs ---------- */
-      var tabs = [].slice.call(document.querySelectorAll('.tab'));
-      var panels = [].slice.call(document.querySelectorAll('.panel'));
+      var tabs = Array.from(document.querySelectorAll('.tab'));
+      var panels = Array.from(document.querySelectorAll('.panel'));
+      var modal = document.getElementById('modal');
+      var previousFocus = null;
 
-      function activate(id, push) {
-        var match = panels.filter(function (p) { return p.id === id; })[0];
-        if (!match) return;
-        panels.forEach(function (p) { p.hidden = (p !== match); });
-        tabs.forEach(function (t) {
-          var on = t.dataset.tab === id;
-          t.setAttribute('aria-selected', on ? 'true' : 'false');
-          t.classList.toggle('is-active', on);
+      function activate(id, updateHash) {
+        var panel = panels.find(function (item) {
+          return item.id === id;
         });
-        if (push && history.replaceState) history.replaceState(null, '', '#' + id);
+
+        if (!panel) return;
+
+        panels.forEach(function (item) {
+          item.hidden = item !== panel;
+        });
+
+        tabs.forEach(function (tab) {
+          var selected = tab.dataset.tab === id;
+          tab.setAttribute('aria-selected', selected ? 'true' : 'false');
+          tab.classList.toggle('is-active', selected);
+        });
+
+        if (updateHash) {
+          history.replaceState(null, '', '#' + id);
+        }
+
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
 
-      tabs.forEach(function (t) {
-        t.addEventListener('click', function (e) {
-          e.preventDefault();
-          activate(t.dataset.tab, true);
+      function launchFireworks(button) {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        var rect = button.getBoundingClientRect();
+        var burst = document.createElement('span');
+
+        burst.className = 'fireworks-burst';
+        burst.setAttribute('aria-hidden', 'true');
+        burst.style.left = rect.left + rect.width / 2 + 'px';
+        burst.style.top = rect.top + rect.height / 2 + 'px';
+
+        for (var i = 0; i < 12; i++) {
+          var particle = document.createElement('i');
+          var angle = (Math.PI * 2 * i) / 12;
+          var distance = 28 + Math.random() * 32;
+
+          particle.style.setProperty('--dx', Math.cos(angle) * distance + 'px');
+          particle.style.setProperty('--dy', Math.sin(angle) * distance + 'px');
+          particle.style.setProperty('--hue', Math.round(Math.random() * 360));
+          burst.appendChild(particle);
+        }
+
+        document.body.appendChild(burst);
+        window.setTimeout(function () {
+          burst.remove();
+        }, 750);
+      }
+
+      function openProject(card) {
+        if (!modal) return;
+
+        var image = modal.querySelector('.modal__img');
+        var title = modal.querySelector('#modal-title');
+        var meta = modal.querySelector('#modal-meta');
+        var description = modal.querySelector('#modal-desc');
+        var closeButton = modal.querySelector('.modal__close');
+        var cardImage = card.querySelector('img');
+
+        if (!image || !title || !meta || !description) return;
+
+        title.textContent = card.dataset.title || 'Project';
+        meta.textContent = card.dataset.meta || '';
+        description.textContent = card.dataset.desc || '';
+
+        image.src = card.dataset.img || (cardImage ? cardImage.src : '');
+        image.alt = card.dataset.title || 'Project image';
+
+        previousFocus = document.activeElement;
+        modal.hidden = false;
+        document.body.classList.add('no-scroll');
+
+        if (closeButton) closeButton.focus();
+      }
+
+      function closeProject() {
+        if (!modal || modal.hidden) return;
+
+        modal.hidden = true;
+        document.body.classList.remove('no-scroll');
+
+        if (previousFocus && typeof previousFocus.focus === 'function') {
+          previousFocus.focus();
+        }
+      }
+
+      tabs.forEach(function (tab, index) {
+        tab.addEventListener('click', function (event) {
+          event.preventDefault();
+          activate(tab.dataset.tab, true);
         });
 
-        t.addEventListener('keydown', function (e) {
-          var i = tabs.indexOf(t);
-          if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-            e.preventDefault();
-            var next = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
-            next.focus();
-            activate(next.dataset.tab, true);
+        tab.addEventListener('keydown', function (event) {
+          if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return;
+
+          event.preventDefault();
+          var direction = event.key === 'ArrowRight' ? 1 : -1;
+          var nextIndex = (index + direction + tabs.length) % tabs.length;
+          tabs[nextIndex].focus();
+          activate(tabs[nextIndex].dataset.tab, true);
+        });
+      });
+
+      document.querySelectorAll('[data-goto]').forEach(function (link) {
+        link.addEventListener('click', function (event) {
+          event.preventDefault();
+
+          if (link.hasAttribute('data-fireworks')) {
+            launchFireworks(link);
           }
+
+          activate(link.dataset.goto, true);
         });
       });
 
-<script>
-  const modal = document.getElementById("project-modal");
-  const closeBtn = document.querySelector(".close-btn");
-  const mainImg = document.getElementById("modal-main-img");
-  const thumbsContainer = document.getElementById("modal-thumbs");
-  const titleEl = document.getElementById("modal-title");
-  const descEl = document.getElementById("modal-desc");
-
-  // Open Modal
-  document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', () => {
-      const title = card.dataset.title;
-      const desc = card.dataset.desc;
-      const mainSrc = card.dataset.img;
-      const images = card.dataset.images ? card.dataset.images.split(',') : [];
-
-      titleEl.innerText = title;
-      descEl.innerText = desc;
-      mainImg.src = mainSrc;
-
-      thumbsContainer.innerHTML = '';
-      images.forEach((src, index) => {
-        const thumb = document.createElement('img');
-        thumb.src = src;
-        thumb.className = 'thumb' + (index === 0 ? ' active' : '');
-        thumb.onclick = function () {
-          mainImg.src = src;
-          document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
-          thumb.classList.add('active');
-        };
-        thumbsContainer.appendChild(thumb);
+      document.querySelectorAll('.card').forEach(function (card) {
+        card.addEventListener('click', function () {
+          openProject(card);
+        });
       });
 
-      modal.style.display = "block";
-    });
-  });
+      if (modal) {
+        modal.querySelectorAll('[data-close]').forEach(function (button) {
+          button.addEventListener('click', closeProject);
+        });
+      }
 
-  // Close Modal
-  closeBtn.onclick = function () {
-    modal.style.display = "none";
-  };
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') closeProject();
+      });
 
-  window.onclick = function (event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  };
-</script>
+      var contactForm = document.querySelector('.form');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function (event) {
+          event.preventDefault();
 
+          if (!contactForm.reportValidity()) return;
+
+          var formData = new FormData(contactForm);
+          var subject = encodeURIComponent('Portfolio inquiry');
+          var body = encodeURIComponent(
+            'Name: ' + formData.get('name') + '\n' +
+            'Email: ' + formData.get('email') + '\n\n' +
+            formData.get('message')
+          );
+
+          window.location.href =
+            'mailto:marissa.dagos@email.com?subject=' + subject + '&body=' + body;
+        });
+      }
+
+      var startingTab = window.location.hash.slice(1);
+      var validStartingTab = panels.some(function (panel) {
+        return panel.id === startingTab;
+      });
+
+      activate(validStartingTab ? startingTab : 'home', false);
+    })();
+  </script>
 </body>
 </html>
     </body>
