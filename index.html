@@ -11,20 +11,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-.services-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 2rem;
-  align-items: end;
-}
+    
+.services-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(150px, 0.55fr); gap: 2rem; align-items: end; }
+.services-portrait { width: min(100%, 520px); max-height: 860px; object-fit: contain; object-position: bottom right; justify-self: end; align-self: end; }
 
-.services-portrait {
-  width: min(100%, 520px);
-  max-height: 860px;
-  object-fit: contain;
-  object-position: bottom right;
-  justify-self: end;
-  align-self: end;
+@media (max-width: 680px) {
+  .services-layout { grid-template-columns: 1fr; }
+  .services-portrait { width: min(100%, 360px); max-height: 600px; justify-self: center; }
 }
 
 .facts > div {
