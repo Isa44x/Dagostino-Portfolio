@@ -274,6 +274,50 @@ h3 { font-size: clamp(1.05rem, 0.95rem + 0.45vw, 1.3rem); }
   margin: 1.75rem 0 1.5rem;
 }
 
+/* ---------- Skills section ---------- */
+.skills-section {
+  margin: 60px 0; /* Spacing to separate from buttons and projects */
+  text-align: left;
+}
+
+.skills-heading {
+  font-family: 'Georgia', serif; /* Matches your "Nice to meet you" heading */
+  font-size: 1.5rem;
+  color: #4a3c3c; /* Dark brown */
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 30px;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.skill-icon {
+  width: 32px;
+  height: 32px;
+  color: #9D00FF; /* Your magenta accent */
+  stroke: #9D00FF;
+}
+
+.skill-label {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #b09e6f; /* Muted gold/tan from your existing categories */
+  letter-spacing: 0.1em; /* Matches the "HOME" and category tracking */
+  text-transform: uppercase;
+}
+
+
 /* ---------- Featured projects on home ---------- */
 .featured {
   margin-top: 1.5rem;
