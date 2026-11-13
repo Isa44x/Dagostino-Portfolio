@@ -517,140 +517,56 @@ function launchFireworks(button) {
         });
       });
 
-      [].slice.call(document.querySelectorAll('[data-goto]')).forEach(function (b) {
-        b.addEventListener('click', function (e) {
-          e.preventDefault();
-          activate(b.dataset.goto, true);
-        });
-      });
-
-      var initial = location.hash.replace('#', '');
-      activate(initial && document.getElementById(initial) ? initial : 'home', false);
-
-      /* ---------- Project modal ---------- */
-      var modal = document.getElementById('modal');
-      var mImg = document.getElementById('modal-img');
-      var mTitle = document.getElementById('modal-title');
-      var mMeta = document.getElementById('modal-meta');
-      var mDesc = document.getElementById('modal-desc');
-      var lastFocus = null;
-
-      function openModal(card) {
-        lastFocus = card;
-        mTitle.textContent = card.dataset.title || '';
-        mMeta.textContent = card.dataset.meta || '';
-        mDesc.textContent = card.dataset.desc || '';
-        if (card.dataset.img) {
-          mImg.src = card.dataset.img;
-          mImg.style.display = '';
-        } else {
-          mImg.style.display = 'none';
-        }
-        modal.hidden = false;
-        document.body.classList.add('no-scroll');
-        modal.querySelector('.modal__close').focus();
-      }
-
-      function closeModal() {
-        modal.hidden = true;
-        document.body.classList.remove('no-scroll');
-        if (lastFocus) lastFocus.focus();
-      }
-
-      [].slice.call(document.querySelectorAll('.card')).forEach(function (c) {
-        c.addEventListener('click', function () { openModal(c); });
-      });
-
-      modal.addEventListener('click', function (e) {
-        if (e.target.hasAttribute('data-close')) closeModal();
-      });
-
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && !modal.hidden) closeModal();
-      });
-    })();
-  </script>
-
-  <!-- The Modal/Popup -->
-<div id="project-modal" class="modal">
-  <div class="modal-content">
-    <span class="close-btn">&times;</span>
-    
-    <!-- Main Large Image -->
-    <img class="modal-main-img" src="https://via.placeholder.com/800x450" alt="Project Main">
-    
-    <!-- Thumbnail Selection -->
-    <div class="modal-thumbnails">
-      <img src="https://via.placeholder.com/150" class="thumb active" onclick="changeImage(this)">
-      <img src="https://via.placeholder.com/150" class="thumb" onclick="changeImage(this)">
-      <img src="https://via.placeholder.com/150" class="thumb" onclick="changeImage(this)">
-    </div>
-    
-    <!-- Project Details -->
-    <div class="modal-details">
-      <h3>Project Title</h3>
-      <p>A brief description of the project goes here.</p>
-    </div>
-  </div>
-</div>
-<div id="project-modal" class="modal">
-  <div class="modal-content">
-    <span class="close-btn">&times;</span>
-    <img id="modal-main-img" src="" alt="Project Main">
-    <div class="modal-thumbnails" id="modal-thumbs"></div>
-    <div class="modal-details">
-      <h3 id="modal-title"></h3>
-      <p id="modal-desc"></p>
-    </div>
-  </div>
-</div>
-      
 <script>
-      const modal = document.getElementById("project-modal");
-const closeBtn = document.querySelector(".close-btn");
-const mainImg = document.getElementById("modal-main-img");
-const thumbsContainer = document.getElementById("modal-thumbs");
-const titleEl = document.getElementById("modal-title");
-const descEl = document.getElementById("modal-desc");
+  const modal = document.getElementById("project-modal");
+  const closeBtn = document.querySelector(".close-btn");
+  const mainImg = document.getElementById("modal-main-img");
+  const thumbsContainer = document.getElementById("modal-thumbs");
+  const titleEl = document.getElementById("modal-title");
+  const descEl = document.getElementById("modal-desc");
 
-// Open Modal
-document.querySelectorAll('.card').forEach(card => {
-  card.addEventListener('click', () => {
-    const title = card.dataset.title;
-    const desc = card.dataset.desc;
-    const mainSrc = card.dataset.img;
-    const images = card.dataset.images ? card.dataset.images.split(',') : [];
+  // Open Modal
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+      const title = card.dataset.title;
+      const desc = card.dataset.desc;
+      const mainSrc = card.dataset.img;
+      const images = card.dataset.images ? card.dataset.images.split(',') : [];
 
-    titleEl.innerText = title;
-    descEl.innerText = desc;
-    mainImg.src = mainSrc;
+      titleEl.innerText = title;
+      descEl.innerText = desc;
+      mainImg.src = mainSrc;
 
-    // Create thumbnails
-    thumbsContainer.innerHTML = '';
-    images.forEach((src, index) => {
-      const thumb = document.createElement('img');
-      thumb.src = src;
-      thumb.className = 'thumb' + (index === 0 ? ' active' : '');
-      thumb.onclick = function() {
-        mainImg.src = src;
-        document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
-        thumb.classList.add('active');
-      };
-      thumbsContainer.appendChild(thumb);
+      thumbsContainer.innerHTML = '';
+      images.forEach((src, index) => {
+        const thumb = document.createElement('img');
+        thumb.src = src;
+        thumb.className = 'thumb' + (index === 0 ? ' active' : '');
+        thumb.onclick = function () {
+          mainImg.src = src;
+          document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+          thumb.classList.add('active');
+        };
+        thumbsContainer.appendChild(thumb);
+      });
+
+      modal.style.display = "block";
     });
-
-    modal.style.display = "block";
   });
-});
 
-// Close Modal
-closeBtn.onclick = function() {
-  modal.style.display = "none";
-}
-window.onclick = function(event) {
-  if (event.target == modal) {
+  // Close Modal
+  closeBtn.onclick = function () {
     modal.style.display = "none";
-  }
-}
+  };
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+</script>
+
+</body>
+</html>
     </body>
 </html>
