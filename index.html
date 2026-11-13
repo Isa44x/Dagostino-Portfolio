@@ -210,7 +210,7 @@
           <header class="panel__head">
             <p class="eyebrow">Page — Portfolio</p>
             <h2>Selected work</h2>
-            <p class="lede">Click any project for details.</p>
+            <p class="lede">Click any project for details, including additional images and links to sites.</p>
           </header>
 
           <!-- ---- Screenwriting ---- -->
@@ -310,21 +310,21 @@
     <span class="rule" aria-hidden="true"></span>
   </div>
 
-  <div class="grid">
-    <!-- Add data-images="img1.jpg,img2.jpg,img3.jpg" to each button -->
-<button class="card" type="button"
-        data-title="Website project"
-        data-meta="Mock Website, 2024"
-        data-desc="Cove Café example website.."
-        data-img="cove-main.png"
-        data-images="cove-map.png,cove-starters.png"
-        data-website="https://tr.ee/KiFEOGy26I">
-  <img src="cove-main.png" alt="" width="800" height="600">
-  <span class="card__body">
-    <strong>Cove Café Site</strong>
-    <span>Mock restaurant site made using Bootstrap, Sublime, and hosted on GitHub.</span>
-  </span>
-</button>
+<div class="grid">
+  <button class="card" type="button"
+          data-title="Cove Café Site"
+          data-meta="Mock Website, 2024"
+          data-desc="Cove Café website project."
+          data-img="cove-main.png"
+          data-images="cove-map.png,cove-starters.png"
+          data-website="https://tr.ee/KiFEOGy26Im">
+    <img src="cove-main.png" alt="" width="800" height="600">
+    <span class="card__body">
+      <strong>Cove Café Site</strong>
+      <span>Mock restaurant site made using Bootstrap, Sublime, and hosted on GitHub.</span>
+    </span>
+  </button>
+</div>
 
     <button class="card" type="button" 
             data-title="Grand Expeditions Website" 
@@ -434,18 +434,30 @@
 <!-- Services and Contact panels go here as siblings of Portfolio. -->
 
   <!-- ===== PROJECT MODAL ===== -->
-  <div class="modal" id="modal" hidden>
-    <div class="modal__backdrop" data-close></div>
-    <div class="modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-      <button class="modal__close" type="button" aria-label="Close" data-close>&times;</button>
-      <img class="modal__img" id="modal-img" src="" alt="">
-      <div class="modal__body">
-        <p class="eyebrow" id="modal-meta"></p>
-        <h3 id="modal-title"></h3>
-        <p id="modal-desc"></p>
-      </div>
+<div class="modal" id="modal" hidden>
+  <div class="modal__backdrop" data-close></div>
+  <div class="modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal__close" type="button" aria-label="Close" data-close>&times;</button>
+
+    <img class="modal__img" id="modal-img" src="" alt="">
+
+    <div class="modal__gallery-controls">
+      <button type="button" class="modal__prev" aria-label="Previous image">Previous</button>
+      <span class="modal__image-count" aria-live="polite"></span>
+      <button type="button" class="modal__next" aria-label="Next image">Next</button>
     </div>
-  </div>    
+
+    <div class="modal__body">
+      <p class="eyebrow" id="modal-meta"></p>
+      <h3 id="modal-title"></h3>
+      <p id="modal-desc"></p>
+
+      <button class="modal__website" type="button" hidden>
+        Open project website
+      </button>
+    </div>
+  </div>
+</div>
 
   
 
@@ -614,6 +626,97 @@
       var validStartingTab = panels.some(function (panel) {
         return panel.id === startingTab;
       });
+
+      var galleryImages = [];
+var galleryIndex = 0;
+
+function showGalleryImage() {
+  var image = modal.querySelector('.modal__img');
+  var count = modal.querySelector('.modal__image-count');
+
+  if (!image || !count || galleryImages.length === 0) return;
+
+  image.src = galleryImages[galleryIndex];
+  count.textContent = (galleryIndex + 1) + ' / ' + galleryImages.length;
+}
+
+function openProject(card) {
+  if (!modal) return;
+
+  var image = modal.querySelector('.modal__img');
+  var title = modal.querySelector('#modal-title');
+  var meta = modal.querySelector('#modal-meta');
+  var description = modal.querySelector('#modal-desc');
+  var closeButton = modal.querySelector('.modal__close');
+  var websiteButton = modal.querySelector('.modal__website');
+  var prevButton = modal.querySelector('.modal__prev');
+  var nextButton = modal.querySelector('.modal__next');
+  var galleryControls = modal.querySelector('.modal__gallery-controls');
+
+  title.textContent = card.dataset.title || 'Project';
+  meta.textContent = card.dataset.meta || '';
+  description.textContent = card.dataset.desc || '';
+
+  var mainImage = card.dataset.img || (card.querySelector('img') ? card.querySelector('img').src : '');
+  var extraImages = (card.dataset.images || '')
+    .split(',')
+    .map(function (src) { return src.trim(); })
+    .filter(Boolean)
+    .slice(0, 4);
+
+  galleryImages = [mainImage].concat(extraImages).filter(Boolean);
+  galleryIndex = 0;
+  showGalleryImage();
+
+  if (galleryImages.length > 1) {
+    galleryControls.hidden = false;
+    prevButton.hidden = false;
+    nextButton.hidden = false;
+  } else {
+    galleryControls.hidden = true;
+    prevButton.hidden = true;
+    nextButton.hidden = true;
+  }
+
+  if (card.dataset.website) {
+    websiteButton.hidden = false;
+    websiteButton.dataset.url = card.dataset.website;
+  } else {
+    websiteButton.hidden = true;
+    websiteButton.removeAttribute('data-url');
+  }
+
+  image.alt = card.dataset.title || 'Project image';
+  previousFocus = document.activeElement;
+  modal.hidden = false;
+  document.body.classList.add('no-scroll');
+
+  if (closeButton) closeButton.focus();
+}
+
+if (modal) {
+  modal.querySelector('.modal__prev').addEventListener('click', function () {
+    galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
+    showGalleryImage();
+  });
+
+  modal.querySelector('.modal__next').addEventListener('click', function () {
+    galleryIndex = (galleryIndex + 1) % galleryImages.length;
+    showGalleryImage();
+  });
+
+  modal.querySelector('.modal__website').addEventListener('click', function () {
+    var url = this.dataset.url;
+    if (!url) return;
+
+    var confirmed = window.confirm('Open this link in a new tab?');
+    if (confirmed) {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+  });
+}
+
+      
 
       activate(validStartingTab ? startingTab : 'home', false);
     })();
