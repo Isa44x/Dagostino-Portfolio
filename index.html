@@ -16,7 +16,6 @@
 </head>
 <body>
 
-  <h1 id="typewriter-name"></h1>
 
   <div class="desk">
     <div class="desk__grain" aria-hidden="true"></div>
@@ -346,6 +345,10 @@
   </div>
 </section>
 
+            </div>
+</section>
+</section> <!-- closes the Portfolio panel -->
+
 
         <!-- ============ SERVICES ============ -->
         <section class="panel" id="services" role="tabpanel" tabindex="0" hidden>
@@ -389,7 +392,7 @@
 
             <div class="prose">
               <h3>Direct</h3>
-              <a href="mailto:marissa.dagos@email.com" target="_blank">Email Me</a>
+              <a href="mailto:marissa.dagos@gmail.com" target="_blank">Email Me</a>
               <p>(757) 324-8193</p>
 
               <h3>Elsewhere</h3>
@@ -422,27 +425,7 @@
     </div>
   </div>    
 
-  <script>
-    const text = "Isa Dagostino";
-    const speed = 150;
-    let i = 0;
-
-    function typeWriter() {
-      const el = document.getElementById("typewriter-name");
-      if (!el) return;
-
-      if (i < text.length) {
-        el.innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeWriter, speed);
-      } else {
-        el.innerHTML += '<span style="animation: blink 1s infinite">|</span>';
-      }
-    }
-
-
-
-  </script>
+  
 
   <script>
     (function () {
@@ -613,7 +596,16 @@
       activate(validStartingTab ? startingTab : 'home', false);
     })();
   </script>
+
+          </section> <!-- closes Contact -->
+      </div> <!-- closes .paper -->
+    </main>
+  </div> <!-- closes .desk -->
+
+  <footer class="colophon">
+    <span>© 2026 Isa Dagostino</span>
+  </footer>
+
+  <!-- Keep your project modal and tab-navigation script here. -->
 </body>
-</html>
-    </body>
 </html>
