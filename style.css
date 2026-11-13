@@ -882,3 +882,31 @@ h3 { font-size: clamp(1.05rem, 0.95rem + 0.45vw, 1.3rem); }
     scroll-behavior: auto !important;
   }
 }
+
+.fireworks-burst {
+  position: fixed;
+  z-index: 2000;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.fireworks-burst i {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: hsl(var(--hue) 80% 60%);
+  animation: fireworks-pop 650ms ease-out forwards;
+}
+
+@keyframes fireworks-pop {
+  from {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(var(--dx), var(--dy)) scale(0.3);
+  }
+}
