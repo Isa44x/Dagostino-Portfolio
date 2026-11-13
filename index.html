@@ -1,743 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">    
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Isa Dagostino — UX, Graphic Design & Print Production</title>
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon2.png"> 
-
+  <title>Isa Dagostino — UX, Graphic Design &amp; Print Production</title>
   <meta name="description" content="Portfolio of Isa Dagostino — screenwriting, video production, graphic design and UX design.">
+  <link rel="icon" type="image/png" href="favicon2.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .services-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(150px, 0.55fr); gap: 2rem; align-items: end; }
+    .services-portrait { width: min(100%, 260px); max-height: 430px; object-fit: contain; object-position: bottom right; justify-self: end; align-self: end; }
+    .modal__gallery-controls { display: flex; justify-content: center; align-items: center; gap: 1rem; padding: .8rem 1rem 0; }
+    .modal__gallery-controls button, .modal__website, .pdf-viewer__close { font: inherit; cursor: pointer; border: 1px solid var(--plum); border-radius: var(--radius); padding: .45rem .8rem; color: var(--plum); background: var(--paper-2); }
+    .modal__gallery-controls button:hover, .modal__website:hover, .pdf-viewer__close:hover { color: white; background: var(--plum); }
+    .modal__image-count { min-width: 4rem; text-align: center; color: var(--muted); }
+    .modal__body .modal__website { margin-top: 1rem; }
+    .pdf-viewer { position: fixed; inset: 0; z-index: 1100; display: grid; grid-template-rows: auto minmax(0, 1fr); gap: .75rem; padding: 1rem; background: rgba(30,18,21,.92); }
+    .pdf-viewer[hidden] { display: none; }
+    .pdf-viewer__toolbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; color: white; }
+    .pdf-viewer__title { margin: 0; color: white; }
+    .pdf-viewer__frame { width: min(1100px, 100%); height: 100%; justify-self: center; border: 0; background: white; }
+    .pdf-viewer__message { color: white; text-align: center; }
+    @media (max-width: 680px) { .services-layout { grid-template-columns: 1fr; } .services-portrait { width: 180px; max-height: 300px; justify-self: center; } }
+  </style>
 </head>
 <body>
-
-
   <div class="desk">
     <div class="desk__grain" aria-hidden="true"></div>
-
-    <!-- ===== HERO STRIP ===== -->
     <header class="hero">
       <div class="hero__inner">
         <div class="hero__text">
           <p class="hero__kicker">Personal Portfolio</p>
           <p class="hero__name">Isa Dagostino</p>
-          <p class="hero__role">Design & Communications Professional</p>
+          <p class="hero__role">Design &amp; Communications Professional</p>
         </div>
         <figure class="hero__cutout">
-          <img src="icons3.png" alt="Decorative icons: a mouse, recording button, opening/closing code parentheses, and a social media style 'like' heart." width="900" height="1400">
+          <img src="icons3.png" alt="Decorative icons: a mouse, recording button, code parentheses, and a like heart." width="900" height="1400">
         </figure>
       </div>
     </header>
 
     <main class="file">
-      <!-- ===== TABS ===== -->
       <nav class="tabs" aria-label="Main navigation">
         <ul class="tabs__list" role="tablist">
           <li role="presentation"><a class="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" data-tab="home">Home</a></li>
           <li role="presentation"><a class="tab" href="#about" role="tab" aria-controls="about" aria-selected="false" data-tab="about">About</a></li>
           <li role="presentation"><a class="tab" href="#portfolio" role="tab" aria-controls="portfolio" aria-selected="false" data-tab="portfolio">Portfolio</a></li>
-          <li role="presentation"><a class="tab" href="#" role="tab" aria-controls="services" aria-selected="false" data-tab="services">Services</a></li>
+          <li role="presentation"><a class="tab" href="#services" role="tab" aria-controls="services" aria-selected="false" data-tab="services">Services</a></li>
           <li role="presentation"><a class="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false" data-tab="contact">Contact</a></li>
         </ul>
       </nav>
 
       <div class="paper">
-        <!-- ============ HOME / COVER ============ -->
         <section class="panel" id="home" role="tabpanel" tabindex="0">
           <div class="cover">
             <div class="cover__text">
               <p class="eyebrow">Home</p>
               <h1>Nice to meet you! I'm Isa.</h1>
               <p class="lede">Designer and storyteller with experience spanning many fields. Intentional, professional design, no matter the media, is my passion.</p>
-
-<div class="cover__actions">
-  <a class="btn" href="#portfolio" data-goto="portfolio" data-fireworks>View work</a>
-  <a class="btn btn--ghost" href="#contact" data-goto="contact">Get in touch</a>
-</div>
-              
-              <!-- Skills Section -->
-              <div class="skills-section">
+              <div class="cover__actions">
+                <a class="btn" href="#portfolio" data-goto="portfolio" data-fireworks>View work</a>
+                <a class="btn btn--ghost" href="#contact" data-goto="contact">Get in touch</a>
+              </div>
+              <div class="skills-section" aria-label="Skills">
                 <div class="skills-grid">
-                  <div class="skill-item">
-                    <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="16 18 22 12 16 6"></polyline>
-                      <polyline points="8 6 2 12 8 18"></polyline>
-                    </svg>
-                    <span class="skill-label">ADOBESUITE</span>
-                  </div>
-
-                  <div class="skill-item">
-                    <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <polygon points="23 7 16 12 23 17 23 7"></polygon>
-                      <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
-                    </svg>
-                    <span class="skill-label">VIDEO EDITING</span>
-                  </div>
-
-                  <div class="skill-item">
-                    <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <path d="M8 12a4 4 0 1 0 8 0 4 4 0 0 0-8 0"></path>
-                    </svg>
-                    <span class="skill-label">BRAND IDENTITY & ADS</span>
-                  </div>
-
-                  <div class="skill-item">
-                    <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M2 12h20"></path>
-                      <path d="M12 2v20"></path>
-                    </svg>
-                    <span class="skill-label">/UI DESIGN</span>
-                  </div>
-
-                  <div class="skill-item">
-                    <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M12 20h9"></path>
-                      <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-                    </svg>
-                    <span class="skill-label">CONTENT STRATEGY</span>
-                  </div>
+                  <div class="skill-item"><span class="skill-label">ADOBE SUITE</span></div>
+                  <div class="skill-item"><span class="skill-label">VIDEO EDITING</span></div>
+                  <div class="skill-item"><span class="skill-label">BRAND IDENTITY &amp; ADS</span></div>
+                  <div class="skill-item"><span class="skill-label">UI DESIGN</span></div>
+                  <div class="skill-item"><span class="skill-label">CONTENT STRATEGY</span></div>
                 </div>
               </div>
-
               <section class="featured" aria-labelledby="featured-title">
                 <h2 class="featured__title" id="featured-title">Featured projects</h2>
-
                 <div class="featured__grid">
-                  <a class="featured-card" href="#portfolio" data-goto="portfolio">
-                    <img src="tanz1.png" alt="Preview of GrantExpeditions Website.">
-                    <span class="featured-card__body">
-                      <strong>GrantExpeditions Website</strong>
-                      <span>2026</span>
-                  </a>
-
-                  <a class="featured-card" href="#portfolio" data-goto="portfolio">
-                    <img src="snowleopard.png" alt="Preview of Cover.">
-                    <span class="featured-card__body">
-                      <strong>Feature Article Cover</strong>
-                      <span>2023</span>
-                    </span>
-                  </a>
-
-                  <a class="featured-card" href="#portfolio" data-goto="portfolio">
-                    <img src="woodsman.png" alt="Preview of Woodsman.">
-                    <span class="featured-card__body">
-                      <strong>Film editing Example</strong>
-                      <span>2024</span>
-                    </span>
-                  </a>
+                  <a class="featured-card" href="#portfolio" data-goto="portfolio"><img src="tanz1.png" alt="Preview of Grant Expeditions website"><span class="featured-card__body"><strong>Grant Expeditions Website</strong><span>2026</span></span></a>
+                  <a class="featured-card" href="#portfolio" data-goto="portfolio"><img src="snowleopard.png" alt="Snow leopard feature article cover"><span class="featured-card__body"><strong>Feature Article Cover</strong><span>2023</span></span></a>
+                  <a class="featured-card" href="#portfolio" data-goto="portfolio"><img src="woodsman.png" alt="Preview of The Woodsman film project"><span class="featured-card__body"><strong>Film Editing Example</strong><span>2024</span></span></a>
                 </div>
               </section>
             </div>
-
-            <figure class="cover__figure">
-              <img src="portfolio-3.png" alt="Portrait of Isa Dagostino; a young woman with blonde hair, sitting in front of a computer. She is looking off to the distance with a cheeky expression." width="800" height="1000">
-            </figure>
+            <figure class="cover__figure"><img src="portfolio-3.png" alt="Illustrated portrait of Isa Dagostino at a computer." width="900" height="1100"></figure>
           </div>
         </section>
 
-        <!-- ============ ABOUT ============ -->
         <section class="panel" id="about" role="tabpanel" tabindex="0" hidden>
-          <header class="panel__head">
-            <p class="eyebrow">Page — About</p>
-            <h2>About me</h2>
-            <p class="lede">Design, print, and story, in equal measure.</p>
-          </header>
-
+          <header class="panel__head"><p class="eyebrow">Page — About</p><h2>About me</h2><p class="lede">Design, print, and story, in equal measure.</p></header>
           <div class="pair">
             <div class="prose">
-              <p>Storytelling has always been at the heart of my creative journey. From living in Germany and Brazil to a month of study in Ireland, I’ve loved immersing myself in new cultures and finding fresh perspectives.</p>
+              <p>Storytelling has always been at the heart of my creative journey. From living in Germany and Brazil to studying in Ireland, I’ve loved immersing myself in new cultures and finding the stories that connect people.</p>
               <p>I’m a creative who loves to explore different mediums. I'm excited to share the projects and personality that define my work.</p>
             </div>
-            <figure class="pair__figure">
-              <img src="ireland.jpeg" alt="Isa Dagostino, a 21-year old student with brightly colored red hair, standing in front of the Cliffs of Moher in County Clare, Ireland circa 2025." width="600" height="800">
-              <figcaption>Cliffs of Moher, Ireland, 2025.</figcaption>
-            </figure>
+            <figure class="pair__figure"><img src="ireland.jpeg" alt="Isa Dagostino at the Cliffs of Moher in Ireland." width="800" height="600"><figcaption>Cliffs of Moher, Ireland, 2025.</figcaption></figure>
           </div>
-
           <dl class="facts facts--wide">
-            <div><dt>Based in</dt><dd>Richmond, Virginia</dd></div>
-            <div><dt>Focus</dt><dd> · Brand · Print · Film</dd></div>
-            <div><dt>Graduated</dt><dd> <br>May, 2026</dd></div>
-            <div><dt>Tools</dt><dd>Figma, InDesign, Illustrator, Premiere</dd></div>
+            <div><dt>Based in</dt><dd>Richmond, Virginia</dd></div><div><dt>Focus</dt><dd>Brand · Print · Film</dd></div><div><dt>Graduated</dt><dd>May, 2026</dd></div><div><dt>Tools</dt><dd>Figma, InDesign, Illustrator, Premiere</dd></div>
           </dl>
-
-          <section class="wall" aria-labelledby="wall-title">
-            <h3 id="wall-title" class="wall__title">In the studio</h3>
-            <p class="wall__intro">In-action.</p>
-
+          <section class="wall" aria-labelledby="wall-title"><h3 id="wall-title" class="wall__title">In the studio</h3><p class="wall__intro">In action.</p>
             <div class="wall__grid">
-              <figure class="shot shot--a">
-                <img src="award.png" alt="Isa Dagostino is smiling and holding an award on stage, next to a curly-haired woman." width="800" height="600">
-                <figcaption>Award for Interactive Design major outstanding contributor, 2026</figcaption>
-              </figure>
-
-              <figure class="shot shot--b">
-                <img src="studio.png" alt="Isa Dagostino in JMU's Breeze Studios. She is wearing a mic and headphones and giving a thumbs up." width="600" height="800">
-                <figcaption>Partaking in different elements of a live broadcast, including talent, cameraman, teleprompt operation, vision mixer, and director.</figcaption>
-              </figure>
-
-              <figure class="shot shot--c">
-                <img src="printing-press.jpeg" alt="Isa Dagostino using a printing press." width="800" height="600">
-                <figcaption>Using a physical printing press with ink and letters to design posters.</figcaption>
-              </figure>
-
-              <figure class="shot shot--d">
-                <img src="shenandoahconsulting.png" alt="Group of people, including Isa, positioned before a whiteboard that says 'Shenandoah Consulting', with logo." width="800" height="600">
-                <figcaption>Capstone project team, Shenandoah Consulting, consisting of UI and CIS students.</figcaption>
-              </figure>
-
-              <figure class="shot shot--e">
-                <img src="img_8085.jpeg" alt="Isa holding camcorder." width="600" height="800">
-                <figcaption>Capturing a graduation reel using a camcorder.</figcaption>
-              </figure>
-
-              <figure class="shot shot--f">
-                <img src="img_8084.png" alt="Multiple women collaborate in a mural painting process." width="800" height="600">
-                <figcaption>Collaborative 'D.C' themed mural painting.</figcaption>
-              </figure>
+              <figure class="shot shot--a"><img src="award.png" alt="Isa smiling and holding an award on stage." width="800" height="600"><figcaption>Award for Interactive Design major outstanding contributor, 2026.</figcaption></figure>
+              <figure class="shot shot--b"><img src="studio.png" alt="Isa in JMU's Breeze Studios wearing a microphone and headphones." width="600" height="800"><figcaption>Live broadcast roles including talent, camera, teleprompter, vision mixer, and director.</figcaption></figure>
+              <figure class="shot shot--c"><img src="printing-press.jpeg" alt="Isa using a printing press." width="800" height="600"><figcaption>Using a physical printing press to design posters.</figcaption></figure>
+              <figure class="shot shot--d"><img src="shenandoahconsulting.png" alt="The Shenandoah Consulting capstone team." width="800" height="600"><figcaption>Capstone project team, Shenandoah Consulting.</figcaption></figure>
+              <figure class="shot shot--e"><img src="IMG_8085.jpeg" alt="Isa holding a camcorder." width="600" height="800"><figcaption>Capturing a graduation reel using a camcorder.</figcaption></figure>
+              <figure class="shot shot--f"><img src="IMG_8084.jpeg" alt="Women collaborating on a mural." width="800" height="600"><figcaption>Collaborative D.C.-themed mural painting.</figcaption></figure>
             </div>
           </section>
         </section>
 
-        <!-- ============ PORTFOLIO ============ -->
         <section class="panel" id="portfolio" role="tabpanel" tabindex="0" hidden>
-          <header class="panel__head">
-            <p class="eyebrow">Page — Portfolio</p>
-            <h2>Selected work</h2>
-            <p class="lede">Click any project for details, including additional images and links to sites.</p>
-          </header>
+          <header class="panel__head"><p class="eyebrow">Page — Portfolio</p><h2>Selected work</h2><p class="lede">Click a project to view its images, details, and available links.</p></header>
 
-          <!-- ---- Screenwriting ---- -->
-          <section class="group" aria-labelledby="g-screen">
-            <div class="group__head">
-              <h3 id="g-screen">Screenwriting</h3>
-              <span class="rule" aria-hidden="true"></span>
-            </div>
-
+          <!-- Project types are intentionally ordered as requested. -->
+          <section class="group" aria-labelledby="g-graphic"><div class="group__head"><h3 id="g-graphic">Graphic Design</h3><span class="rule" aria-hidden="true"></span></div>
             <div class="grid">
-              <button class="card" type="button" data-title="Script One" data-meta="Feature · Drama · 2025" data-desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Logline, role and outcome go here." data-img="screen-1.jpg">
-                <img src="screenplay1.png" alt="" width="800" height="600">
-                <span class="card__body"><strong>Script One</strong><span>Feature · Drama</span></span>
-              </button>
-
-              <button class="card" type="button" data-title="Script Two" data-meta="Short · Thriller · 2024" data-desc="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Add synopsis, role and outcome here." data-img="screen-2.jpg">
-                <img src="screenplay.png" alt="" width="800" height="600">
-                <span class="card__body"><strong>Script Two</strong><span>Short · Thriller</span></span>
-              </button>
+              <button class="card" type="button" data-title="Feature Article Cover" data-meta="Graphic design · 2024" data-desc="Vector feature article cover of a snow leopard, entitled ‘Ghost Cat’." data-img="snowleopard.png"><img src="snowleopard.png" alt="Snow leopard feature article cover" width="800" height="600"><span class="card__body"><strong>‘Ghost Cat’ Cover</strong><span>Feature article cover, made in Illustrator.</span></span></button>
+              <button class="card" type="button" data-title="Eden Harbor Catalogue" data-meta="Graphic design · InDesign" data-desc="Multi-page catalogue advertising boats for a mock company." data-img="Eden1.png" data-images="eden2.png,eden3.png,eden4.png"><img src="Eden1.png" alt="Eden Harbor catalogue cover" width="800" height="600"><span class="card__body"><strong>Eden Harbor Catalogue</strong><span>Four-page project · InDesign</span></span></button>
+              <button class="card" type="button" data-title="Sideshow Concert Poster" data-meta="Graphic design · InDesign" data-desc="Mock concert poster made in InDesign." data-img="chappell.png"><img src="chappell.png" alt="Sideshow concert poster" width="800" height="600"><span class="card__body"><strong>‘Sideshow’ Concert Poster</strong><span>Mock concert poster</span></span></button>
+              <button class="card" type="button" data-title="Digital Studies Brochure" data-meta="Graphic design · InDesign" data-desc="Digital Studies brochure made using InDesign." data-img="digi1.png"><img src="digi1.png" alt="Digital Studies brochure" width="800" height="600"><span class="card__body"><strong>Digital Studies Brochure</strong><span>Made using InDesign</span></span></button>
+              <button class="card" type="button" data-title="Groundhog Coffee Logo" data-meta="Brand identity" data-desc="Groundhog Coffee logo designed as a vector using Google Slides." data-img="groundhog.png"><img src="groundhog.png" alt="Groundhog Coffee logo" width="800" height="600"><span class="card__body"><strong>Groundhog Coffee Logo</strong><span>Vector identity</span></span></button>
+              <button class="card" type="button" data-title="Sprucehead Seafood Logo" data-meta="Brand identity" data-desc="Simplified black-and-white logo variations for varied use." data-img="sprucehead.png"><img src="sprucehead.png" alt="Sprucehead Seafood logo" width="800" height="600"><span class="card__body"><strong>Sprucehead Seafood Logo</strong><span>Logo variations</span></span></button>
             </div>
           </section>
 
-          <!-- ---- Video Production ---- -->
-          <section class="group" aria-labelledby="g-video">
-            <div class="group__head">
-              <h3 id="g-video">Video Production</h3>
-              <span class="rule" aria-hidden="true"></span>
-            </div>
-
+          <section class="group" aria-labelledby="g-ux"><div class="group__head"><h3 id="g-ux">UX Projects</h3><span class="rule" aria-hidden="true"></span></div>
             <div class="grid">
-              <button class="card" type="button" data-title="The Woodsman" data-meta="Film editing project" data-desc="Short film editing project with pre-gathered footage. Editing consisted of choosing scenes, cuts, music, and audio." data-img="woodsman.png">
-                <img src="woodsman.png" alt="" width="800" height="600">
-                    <span class="card__body"><strong>"The Woodsman"</strong><span>Short film editing project with pre-gathered footage; chose scenes, cuts, music, and audio in Premiere.</span></span>
-
-              </button>
-
-              <button class="card" type="button" data-title="Film Two" data-meta="Beginnings short film" data-desc="An original short film entitled beginnings." data-img="video-2.jpg">
-                <img src="Beginnings.png" alt="" width="800" height="600">
-                <span class="card__body"><strong>Beginnings</strong><span>Short film; writer, editor, and co-director; edited in iMovie.</span></span>
-              </button>
+              <button class="card" type="button" data-title="Cove Café Site" data-meta="Mock website · 2024" data-desc="Mock restaurant website made using Bootstrap and Sublime." data-img="cove-main.png" data-images="cove-map.png,cove-starters.png" data-website="https://tr.ee/KiFEOGy26Im"><img src="cove-main.png" alt="Cove Café website home page" width="800" height="600"><span class="card__body"><strong>Cove Café Site</strong><span>Bootstrap · Site and two additional views</span></span></button>
+              <button class="card" type="button" data-title="Grant Expeditions Website" data-meta="Website · Lovable" data-desc="Functional website for a Tanzanian tour company, presented to stakeholders." data-img="tanz1.png" data-images="tanz2.png,tanz3.png"><img src="tanz1.png" alt="Grant Expeditions website" width="800" height="600"><span class="card__body"><strong>Grant Expeditions Website</strong><span>Functional stakeholder project</span></span></button>
+              <button class="card" type="button" data-title="Grow with the Flow App Design" data-meta="UX / UI design" data-desc="Grow with the Flow app design project." data-img="grow-figma.png" data-images="grow-poster.png"><img src="grow-figma.png" alt="Grow with the Flow app design" width="800" height="600"><span class="card__body"><strong>Grow with the Flow</strong><span>App design and poster</span></span></button>
+              <button class="card" type="button" data-title="Artfolio Personal Site" data-meta="Website · Wix" data-desc="An earlier version of my personal portfolio website." data-img="port1.png" data-images="port2.png,port3.png"><img src="port1.png" alt="Artfolio personal website" width="800" height="600"><span class="card__body"><strong>Artfolio Personal Site</strong><span>Three project images · Wix</span></span></button>
+              <button class="card" type="button" data-title="Hauntbnb" data-meta="Website · HTML and CSS" data-desc="A barebones site coded with Sublime and hosted with GitHub." data-img="haunt1.png" data-images="haunt2.png,haunt3.png"><img src="haunt1.png" alt="Hauntbnb website" width="800" height="600"><span class="card__body"><strong>Hauntbnb</strong><span>Three project images · HTML and CSS</span></span></button>
             </div>
           </section>
 
-          <!-- ---- Graphic Design ---- -->
-          <section class="group" aria-labelledby="g-graphic">
-            <div class="group__head">
-              <h3 id="g-graphic">Graphic Design</h3>
-              <span class="rule" aria-hidden="true"></span>
-            </div>
-
+          <section class="group" aria-labelledby="g-video"><div class="group__head"><h3 id="g-video">Video Production</h3><span class="rule" aria-hidden="true"></span></div>
             <div class="grid">
-              <button class="card" type="button" data-title="Feature Article" data-meta="Graphic design, 2024" data-desc="Vector feature article cover of a snow leopard, entitled 'Ghost cat'." data-img="snowleopard.png">
-                <img src="snowleopard.png" alt="" width="800" height="600">
-                <span class="card__body"><strong>"Ghost Cat' cover</strong><span>Featue article cover, vector, made in Illustrator.</span></span>
-              </button>
-
-<button class="card"
-        type="button"
-        data-title="Eden Harbor"
-        data-meta="Eden Harbor Catalogue"
-        data-desc="Eden Harbor boat company catalogue."
-        data-img="Eden1.png"
-        data-images="eden2.png,eden3.png,eden4.png"
-  <img src="Eden1.png" alt="" width="800" height="600">
-  <span class="card__body">
-    <strong>Eden Harbor Catalogue</strong>
-    <span>Multi-page catalogue advertising boats for a mock company, made in InDesign.</span>
-  </span>
-</button>
-
-              <button class="card" type="button" data-title="Concert poster" data-meta="Mock concert poster, made in InDesign." data-desc="Mock concert poster, made in InDesign." data-img="Chappell.png">
-                <img src="Chappell.png" alt="" width="800" height="600">
-                <span class="card__body"><strong>"Sideshow" concert poster</strong><span>Mock concert poster, made in InDesign.</span></span>
-              </button>
-
-              <button class="card" type="button" data-title="Poster Four" data-meta="Campaign · 2024" data-desc="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum." data-img="graphic-4.jpg">
-                <img src="digi1.png" alt="" width="800" height="600">
-                <span class="card__body"><strong>Digital Studies Brochure</strong><span>Made using InDesign.</span></span>
-              </button>
-
-              <button class="card" type="button" data-title="Type Five" data-meta="Type design" data-desc="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." data-img="graphic-5.jpg">
-                <img src="groundhog.png" alt="" width="800" height="600">
-                <span class="card__body"><strong>Groundhog Coffee logo</strong><span>Designed as a vector using Google Slides.</span></span>
-              </button>
-
-              <button class="card" type="button" data-title="Reserved Six" data-meta="Open slot" data-desc="Empty slot — add your next project here." data-img="graphic-6.jpg">
-                <img src="sprucehead.png" alt="" width="800" height="600">
-                <span class="card__body"><strong>Sprucehead seafood Logo</strong><span>Simplified and B&W varuitions for varied use.</span></span>
-              </button>
+              <button class="card" type="button" data-title="The Woodsman" data-meta="Film editing project" data-desc="Short film editing project using pre-gathered footage. Edited in Premiere." data-img="woodsman.png" data-drive-url=""><img src="woodsman.png" alt="The Woodsman film editing project" width="800" height="600"><span class="card__body"><strong>The Woodsman</strong><span>Film edit · Open Google Drive link</span></span></button>
+              <button class="card" type="button" data-title="Beginnings" data-meta="Short film" data-desc="Original short film; writer, editor, and co-director. Edited in iMovie." data-img="Beginnings.png" data-drive-url=""><img src="Beginnings.png" alt="Beginnings short film" width="800" height="600"><span class="card__body"><strong>Beginnings</strong><span>Writer, editor, and co-director · Open Google Drive link</span></span></button>
             </div>
           </section>
 
-          <!-- ---- UX Projects ---- -->
-<section class="group" aria-labelledby="g-ux">
-  <div class="group__head">
-    <h3 id="g-ux">UX Projects</h3>
-    <span class="rule" aria-hidden="true"></span>
-  </div>
+          <section class="group" aria-labelledby="g-screen"><div class="group__head"><h3 id="g-screen">Screenplays</h3><span class="rule" aria-hidden="true"></span></div>
+            <div class="grid">
+              <button class="card" type="button" data-title="Script One" data-meta="Feature · Drama · 2025" data-desc="Open the screenplay PDF in the in-site reader." data-img="screenplay1.png" data-pdf="script-one.pdf"><img src="screenplay1.png" alt="Script One cover" width="800" height="600"><span class="card__body"><strong>Script One</strong><span>Feature · Drama · Read screenplay</span></span></button>
+              <button class="card" type="button" data-title="Script Two" data-meta="Short · Thriller · 2024" data-desc="Open the screenplay PDF in the in-site reader." data-img="screenplay2.png" data-pdf="script-two.pdf"><img src="screenplay2.png" alt="Script Two cover" width="800" height="600"><span class="card__body"><strong>Script Two</strong><span>Short · Thriller · Read screenplay</span></span></button>
+            </div>
+          </section>
 
-<div class="grid">
-  <button class="card" type="button"
-          data-title="Cove Café Site"
-          data-meta="Mock Website, 2024"
-          data-desc="Cove Café website project."
-          data-img="cove-main.png"
-          data-images="cove-map.png,cove-starters.png"
-          data-website="https://tr.ee/KiFEOGy26Im">
-    <img src="cove-main.png" alt="" width="800" height="600">
-    <span class="card__body">
-      <strong>Cove Café Site</strong>
-      <span>Mock restaurant site made using Bootstrap, Sublime, and hosted on GitHub.</span>
-    </span>
-  </button>
-</div>
-
-    <button class="card" type="button" 
-            data-title="Grand Expeditions Website" 
-            data-meta="Website, made using Lovable." 
-            data-desc="Sed do eiusmod tempor incididunt..." 
-            data-img="ux-2.jpg"
-            data-images="tanz2.png,tanz3.png">
-        data-website="https://your-actual-website-url.com">
-      <img src="ux-2.jpg" alt="" width="800" height="600">
-      <span class="card__body"><strong>Grant Expeditions Website</strong><span>Functional website for a Tanzanian Tour Company made using Lovable and presented to stakeholders.</span></span>
-    </button>
-
-    <button class="card" type="button" 
-            data-title="Grow with the Flow App" 
-            data-meta="Design system · 2024" 
-            data-desc="Ut enim ad minim veniam..." 
-            data-img="grow-figma.png"
-            data-images="grow-poster.png">
-      <img src="ux-3.jpg" alt="" width="800" height="600">
-      <span class="card__body"><strong>Grow with the Flow app design</strong><span>Design system</span></span>
-    </button>
-
-    <button class="card" type="button" 
-            data-title="idk" 
-            data-meta="Research · 2024" 
-            data-desc="Duis aute irure dolor..." 
-            data-img="port1.pngg"
-            data-images="port2.png,port3.png">
-      <img src="Port1.png" alt="" width="800" height="600">
-      <span class="card__body"><strong>Artfolio personal site</strong><span>My old personal website, made using Wix.</span></span>
-    </button>
-  </div>
-</section>
-
-              <button class="card" type="button" 
-            data-title="haunt bnb" 
-            data-meta="Research · 2024" 
-            data-desc="Duis aute irure dolor..." 
-            data-img="haunt1.png"
-            data-images="haunt2.png,haunt3.png">
-      <img src="Port1.png" alt="" width="800" height="600">
-      <span class="card__body"><strong>Haunt bnb</strong><span>Barebones HTML & CSS Site, coded with Sublime and hosted with Github.</span></span>
-    </button>
-  </div>
-</section>
-</section> <!-- closes Portfolio panel -->
-
-<!-- Services and Contact panels go here as siblings of Portfolio. -->
-
-
-        <!-- ============ SERVICES ============ -->
-        <section class="panel" id="services" role="tabpanel" tabindex="0" hidden>
-          <header class="panel__head">
-            <p class="eyebrow">Page — Services</p>
-            <h2>What I do</h2>
-            <p class="lede">A quick overview of what I can do.</p>
-          </header>
-
-          <ul class="services">
-            <li><h3>UX Design</h3><p>Research, wireframes, prototypes, usability testing and design systems.</p></li>
-            <li><h3>Graphic Design & Creative Advertising</h3><p>Identity systems, editorial layout, packaging and campaign assets.</p></li>
-            <li><h3>Print Production</h3><p>Layout hierarchy, gestalt principles, colour management, and stock selection/bindings.</p></li>
-            <li><h3>Screenwriting</h3><p>Original pieces and mock sitcom episodes.</p></li>
-            <li><h3>Video Production & Broadcast</h3><p>Directing, camera, editing, post-production, as well as news studio/broadcast roles.</p></li>
-            <li><h3>Content strategy</h3><p>Social media management, campaigns, and online presense.</p></li>
-          </ul>
+          <section class="group" aria-labelledby="g-other"><div class="group__head"><h3 id="g-other">Other</h3><span class="rule" aria-hidden="true"></span></div>
+            <div class="grid">
+              <button class="card" type="button" data-title="Mural Project One" data-meta="Community art" data-desc="Collaborative mural project." data-img="mural1.png"><img src="mural1.png" alt="Mural project one" width="800" height="600"><span class="card__body"><strong>Mural Project One</strong><span>Community art</span></span></button>
+              <button class="card" type="button" data-title="Mural Project Two" data-meta="Community art" data-desc="Collaborative mural project." data-img="mural2.png"><img src="mural2.png" alt="Mural project two" width="800" height="600"><span class="card__body"><strong>Mural Project Two</strong><span>Community art</span></span></button>
+              <button class="card" type="button" data-title="Mural Project Three" data-meta="Community art" data-desc="Collaborative mural project." data-img="mural3.png"><img src="mural3.png" alt="Mural project three" width="800" height="600"><span class="card__body"><strong>Mural Project Three</strong><span>Community art</span></span></button>
+              <button class="card" type="button" data-title="Creative Branding Collection" data-meta="Branding and visual design" data-desc="A collection of brand identity and visual design work." data-img="groundhog.png" data-images="sprucehead.png,digi1.png,digi2.png"><img src="groundhog.png" alt="Creative branding project preview" width="800" height="600"><span class="card__body"><strong>Creative Branding</strong><span>Four-image identity and design collection</span></span></button>
+            </div>
+          </section>
         </section>
 
-        <!-- ============ CONTACT ============ -->
-        <section class="panel" id="contact" role="tabpanel" tabindex="0" hidden>
-          <header class="panel__head">
-            <p class="eyebrow">Page — Contact</p>
-            <h2>Let's talk!</h2>
-            <p class="lede">Available for freelance and full-time work.</p>
-          </header>
+        <section class="panel" id="services" role="tabpanel" tabindex="0" hidden>
+          <header class="panel__head"><p class="eyebrow">Page — Services</p><h2>What I do</h2><p class="lede">A quick overview of what I can do.</p></header>
+          <div class="services-layout">
+            <ul class="services">
+              <li><h3>UX Design</h3><p>Research, wireframes, prototypes, usability testing, and design systems.</p></li>
+              <li><h3>Graphic Design &amp; Creative Advertising</h3><p>Identity systems, editorial layout, packaging, and campaign assets.</p></li>
+              <li><h3>Print Production</h3><p>Layout hierarchy, gestalt principles, colour management, and stock selection.</p></li>
+              <li><h3>Screenwriting</h3><p>Original pieces and mock sitcom episodes.</p></li>
+              <li><h3>Video Production &amp; Broadcast</h3><p>Directing, camera, editing, post-production, and broadcast roles.</p></li>
+              <li><h3>Content Strategy</h3><p>Social media management, campaigns, and online presence.</p></li>
+            </ul>
+            <img class="services-portrait" src="Isa.png" alt="Illustration of Isa working on a laptop" loading="lazy">
+          </div>
+        </section>
 
+        <section class="panel" id="contact" role="tabpanel" tabindex="0" hidden>
+          <header class="panel__head"><p class="eyebrow">Page — Contact</p><h2>Let's talk!</h2><p class="lede">Available for freelance and full-time work.</p></header>
           <div class="pair pair--contact">
             <form class="form" action="#" method="post">
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" autocomplete="name" required>
-
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" required>
-
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" required></textarea>
-
+              <label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" required>
+              <label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required>
+              <label for="message">Message</label><textarea id="message" name="message" rows="5" required></textarea>
               <button type="submit" class="btn">Send message</button>
             </form>
-
-            <div class="prose">
-              <h3>Direct</h3>
-              <a href="mailto:marissa.dagos@gmail.com" target="_blank">Email Me</a>
-              <p><a href="tel:+17573248193">(757) 324-8193</a></p>
-
-              <h3>Elsewhere</h3>
-              <ul class="links">
-                <li><a href="https://www.linkedin.com/in/isa-dagostino/" target="_blank">LinkedIn</a></li>
-                <li><a href="https://linktr.ee/marissa.dagos" target="_blank">LinkedTree</a></li>
-              </ul>
-            </div>
+            <div class="prose"><h3>Direct</h3><a href="mailto:marissa.dagos@gmail.com">Email Me</a><p><a href="tel:+17573248193">(757) 324-8193</a></p><h3>Elsewhere</h3><ul class="links"><li><a href="https://www.linkedin.com/in/isa-dagostino/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li><li><a href="https://linktr.ee/marissa.dagos" target="_blank" rel="noopener noreferrer">Linktree</a></li></ul></div>
           </div>
         </section>
-
+        <footer class="colophon"><span>© 2026 Isa Dagostino</span></footer>
+      </div>
     </main>
   </div>
-          </section> <!-- closes Contact -->
-      </div> <!-- closes .paper -->
-  
-  <footer class="colophon">
-    <span>© 2026 Isa Dagostino</span>
-    
-  <footer class="colophon">
-    <span>© 2026 Isa Dagostino</span>
 
-    </div> <!-- closes UX Projects grid -->
-</section> <!-- closes UX Projects group -->
-
-<!-- Services and Contact panels go here as siblings of Portfolio. -->
-
-  <!-- ===== PROJECT MODAL ===== -->
-<div class="modal" id="modal" hidden>
-  <div class="modal__backdrop" data-close></div>
-  <div class="modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <button class="modal__close" type="button" aria-label="Close" data-close>&times;</button>
-
-    <img class="modal__img" id="modal-img" src="" alt="">
-
-    <div class="modal__gallery-controls">
-      <button type="button" class="modal__prev" aria-label="Previous image">Previous</button>
-      <span class="modal__image-count" aria-live="polite"></span>
-      <button type="button" class="modal__next" aria-label="Next image">Next</button>
-    </div>
-
-    <div class="modal__body">
-      <p class="eyebrow" id="modal-meta"></p>
-      <h3 id="modal-title"></h3>
-      <p id="modal-desc"></p>
-
-      <button class="modal__website" type="button" hidden>
-        Open project website
-      </button>
+  <div class="modal" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__box">
+      <button class="modal__close" type="button" aria-label="Close project viewer" data-close>&times;</button>
+      <img class="modal__img" id="modal-img" src="" alt="">
+      <div class="modal__gallery-controls" hidden>
+        <button type="button" class="modal__prev" aria-label="Previous image">Previous</button><span class="modal__image-count" aria-live="polite"></span><button type="button" class="modal__next" aria-label="Next image">Next</button>
+      </div>
+      <div class="modal__body"><p class="eyebrow" id="modal-meta"></p><h3 id="modal-title"></h3><p id="modal-desc"></p><button class="modal__website" type="button" hidden>Open project website</button><button class="modal__website" id="drive-link" type="button" hidden>Open Google Drive video</button></div>
     </div>
   </div>
-</div>
 
-  
+  <div class="pdf-viewer" id="pdf-viewer" role="dialog" aria-modal="true" aria-labelledby="pdf-title" hidden>
+    <div class="pdf-viewer__toolbar"><h2 class="pdf-viewer__title" id="pdf-title">Screenplay</h2><button class="pdf-viewer__close" type="button">Close screenplay</button></div>
+    <iframe class="pdf-viewer__frame" title="Screenplay PDF" src="about:blank"></iframe>
+    <p class="pdf-viewer__message" hidden>PDF not found. Add the screenplay PDF at the path configured on its card.</p>
+  </div>
 
   <script>
     (function () {
+      'use strict';
       var tabs = Array.from(document.querySelectorAll('.tab'));
       var panels = Array.from(document.querySelectorAll('.panel'));
-      var modal = document.getElementById('modal');
+      var modal = document.getElementById('project-modal');
+      var pdfViewer = document.getElementById('pdf-viewer');
+      var pdfFrame = pdfViewer.querySelector('iframe');
+      var pdfMessage = pdfViewer.querySelector('.pdf-viewer__message');
       var previousFocus = null;
+      var galleryImages = [];
+      var galleryIndex = 0;
 
       function activate(id, updateHash) {
-        var panel = panels.find(function (item) {
-          return item.id === id;
-        });
-
+        var panel = panels.find(function (item) { return item.id === id; });
         if (!panel) return;
-
-        panels.forEach(function (item) {
-          item.hidden = item !== panel;
-        });
-
+        panels.forEach(function (item) { item.hidden = item !== panel; });
         tabs.forEach(function (tab) {
           var selected = tab.dataset.tab === id;
-          tab.setAttribute('aria-selected', selected ? 'true' : 'false');
+          tab.setAttribute('aria-selected', String(selected));
           tab.classList.toggle('is-active', selected);
         });
-
-        if (updateHash) {
-          history.replaceState(null, '', '#' + id);
-        }
-
+        if (updateHash) history.replaceState(null, '', '#' + id);
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
 
-      function launchFireworks(button) {
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      function showGalleryImage() {
+        if (!galleryImages.length) return;
+        var image = modal.querySelector('.modal__img');
+        image.src = galleryImages[galleryIndex];
+        image.alt = (modal.querySelector('#modal-title').textContent || 'Project') + ' image ' + (galleryIndex + 1);
+        modal.querySelector('.modal__image-count').textContent = (galleryIndex + 1) + ' / ' + galleryImages.length;
+      }
 
-        var rect = button.getBoundingClientRect();
-        var burst = document.createElement('span');
-
-        burst.className = 'fireworks-burst';
-        burst.setAttribute('aria-hidden', 'true');
-        burst.style.left = rect.left + rect.width / 2 + 'px';
-        burst.style.top = rect.top + rect.height / 2 + 'px';
-
-        for (var i = 0; i < 12; i++) {
-          var particle = document.createElement('i');
-          var angle = (Math.PI * 2 * i) / 12;
-          var distance = 28 + Math.random() * 32;
-
-          particle.style.setProperty('--dx', Math.cos(angle) * distance + 'px');
-          particle.style.setProperty('--dy', Math.sin(angle) * distance + 'px');
-          particle.style.setProperty('--hue', Math.round(Math.random() * 360));
-          burst.appendChild(particle);
-        }
-
-        document.body.appendChild(burst);
-        window.setTimeout(function () {
-          burst.remove();
-        }, 750);
+      function openPdf(card) {
+        previousFocus = document.activeElement;
+        pdfViewer.querySelector('#pdf-title').textContent = card.dataset.title || 'Screenplay';
+        pdfMessage.hidden = true;
+        pdfFrame.src = card.dataset.pdf;
+        pdfViewer.hidden = false;
+        document.body.classList.add('no-scroll');
+        pdfViewer.querySelector('.pdf-viewer__close').focus();
       }
 
       function openProject(card) {
-        if (!modal) return;
-
-        var image = modal.querySelector('.modal__img');
+        if (card.dataset.pdf) { openPdf(card); return; }
         var title = modal.querySelector('#modal-title');
         var meta = modal.querySelector('#modal-meta');
         var description = modal.querySelector('#modal-desc');
-        var closeButton = modal.querySelector('.modal__close');
-        var cardImage = card.querySelector('img');
-
-        if (!image || !title || !meta || !description) return;
-
+        var image = modal.querySelector('.modal__img');
         title.textContent = card.dataset.title || 'Project';
         meta.textContent = card.dataset.meta || '';
         description.textContent = card.dataset.desc || '';
-
-        image.src = card.dataset.img || (cardImage ? cardImage.src : '');
-        image.alt = card.dataset.title || 'Project image';
-
+        var mainImage = card.dataset.img || (card.querySelector('img') && card.querySelector('img').getAttribute('src')) || '';
+        var extras = (card.dataset.images || '').split(',').map(function (path) { return path.trim(); }).filter(Boolean);
+        galleryImages = [mainImage].concat(extras).filter(Boolean);
+        galleryIndex = 0;
+        showGalleryImage();
+        modal.querySelector('.modal__gallery-controls').hidden = galleryImages.length < 2;
+        modal.querySelector('.modal__website').hidden = !card.dataset.website;
+        modal.querySelector('.modal__website').dataset.url = card.dataset.website || '';
+        var driveButton = modal.querySelector('#drive-link');
+        driveButton.hidden = !card.dataset.driveUrl;
+        driveButton.dataset.url = card.dataset.driveUrl || '';
         previousFocus = document.activeElement;
         modal.hidden = false;
         document.body.classList.add('no-scroll');
-
-        if (closeButton) closeButton.focus();
+        modal.querySelector('.modal__close').focus();
       }
 
       function closeProject() {
         if (!modal || modal.hidden) return;
-
         modal.hidden = true;
         document.body.classList.remove('no-scroll');
+        if (previousFocus && previousFocus.focus) previousFocus.focus();
+      }
 
-        if (previousFocus && typeof previousFocus.focus === 'function') {
-          previousFocus.focus();
-        }
+      function closePdf() {
+        if (pdfViewer.hidden) return;
+        pdfViewer.hidden = true;
+        pdfFrame.src = 'about:blank';
+        document.body.classList.remove('no-scroll');
+        if (previousFocus && previousFocus.focus) previousFocus.focus();
       }
 
       tabs.forEach(function (tab, index) {
-        tab.addEventListener('click', function (event) {
-          event.preventDefault();
-          activate(tab.dataset.tab, true);
-        });
-
+        tab.addEventListener('click', function (event) { event.preventDefault(); activate(tab.dataset.tab, true); });
         tab.addEventListener('keydown', function (event) {
           if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return;
-
           event.preventDefault();
-          var direction = event.key === 'ArrowRight' ? 1 : -1;
-          var nextIndex = (index + direction + tabs.length) % tabs.length;
-          tabs[nextIndex].focus();
-          activate(tabs[nextIndex].dataset.tab, true);
+          var step = event.key === 'ArrowRight' ? 1 : -1;
+          var next = (index + step + tabs.length) % tabs.length;
+          tabs[next].focus();
+          activate(tabs[next].dataset.tab, true);
         });
       });
 
       document.querySelectorAll('[data-goto]').forEach(function (link) {
         link.addEventListener('click', function (event) {
           event.preventDefault();
-
-          if (link.hasAttribute('data-fireworks')) {
-            launchFireworks(link);
+          if (link.hasAttribute('data-fireworks') && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            var rect = link.getBoundingClientRect();
+            var burst = document.createElement('span');
+            burst.className = 'fireworks-burst';
+            burst.setAttribute('aria-hidden', 'true');
+            burst.style.left = rect.left + rect.width / 2 + 'px';
+            burst.style.top = rect.top + rect.height / 2 + 'px';
+            for (var i = 0; i < 12; i++) {
+              var particle = document.createElement('i');
+              var angle = Math.PI * 2 * i / 12;
+              var distance = 28 + Math.random() * 32;
+              particle.style.setProperty('--dx', Math.cos(angle) * distance + 'px');
+              particle.style.setProperty('--dy', Math.sin(angle) * distance + 'px');
+              particle.style.setProperty('--hue', Math.round(Math.random() * 360));
+              burst.appendChild(particle);
+            }
+            document.body.appendChild(burst);
+            window.setTimeout(function () { burst.remove(); }, 750);
           }
-
           activate(link.dataset.goto, true);
         });
       });
 
-      document.querySelectorAll('.card').forEach(function (card) {
-        card.addEventListener('click', function () {
-          openProject(card);
-        });
+      document.querySelectorAll('.card').forEach(function (card) { card.addEventListener('click', function () { openProject(card); }); });
+      modal.querySelectorAll('[data-close]').forEach(function (button) { button.addEventListener('click', closeProject); });
+      modal.querySelector('.modal__prev').addEventListener('click', function () { galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length; showGalleryImage(); });
+      modal.querySelector('.modal__next').addEventListener('click', function () { galleryIndex = (galleryIndex + 1) % galleryImages.length; showGalleryImage(); });
+      modal.querySelector('.modal__website').addEventListener('click', function () {
+        var url = this.dataset.url;
+        if (url && window.confirm('Open this project website in a new tab?')) window.open(url, '_blank', 'noopener,noreferrer');
       });
-
-      if (modal) {
-        modal.querySelectorAll('[data-close]').forEach(function (button) {
-          button.addEventListener('click', closeProject);
-        });
-      }
-
+      modal.querySelector('#drive-link').addEventListener('click', function () {
+        var url = this.dataset.url;
+        if (url && window.confirm('Open this Google Drive video in a new tab?')) window.open(url, '_blank', 'noopener,noreferrer');
+      });
+      pdfViewer.querySelector('.pdf-viewer__close').addEventListener('click', closePdf);
+      pdfFrame.addEventListener('error', function () { pdfMessage.hidden = false; });
       document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape') closeProject();
+        if (event.key === 'Escape') { closeProject(); closePdf(); }
       });
 
       var contactForm = document.querySelector('.form');
-      if (contactForm) {
-        contactForm.addEventListener('submit', function (event) {
-          event.preventDefault();
-
-          if (!contactForm.reportValidity()) return;
-
-          var formData = new FormData(contactForm);
-          var subject = encodeURIComponent('Portfolio inquiry');
-          var body = encodeURIComponent(
-            'Name: ' + formData.get('name') + '\n' +
-            'Email: ' + formData.get('email') + '\n\n' +
-            formData.get('message')
-          );
-
-          window.location.href =
-            'mailto:marissa.dagos@gmail.com?subject=' + subject + '&body=' + body;
-        });
-      }
-
-      var startingTab = window.location.hash.slice(1);
-      var validStartingTab = panels.some(function (panel) {
-        return panel.id === startingTab;
+      contactForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        if (!contactForm.reportValidity()) return;
+        var fields = new FormData(contactForm);
+        var subject = encodeURIComponent('Portfolio inquiry');
+        var body = encodeURIComponent('Name: ' + fields.get('name') + '\nEmail: ' + fields.get('email') + '\n\n' + fields.get('message'));
+        window.location.href = 'mailto:marissa.dagos@gmail.com?subject=' + subject + '&body=' + body;
       });
 
-      var galleryImages = [];
-var galleryIndex = 0;
-
-function showGalleryImage() {
-  var image = modal.querySelector('.modal__img');
-  var count = modal.querySelector('.modal__image-count');
-
-  if (!image || !count || galleryImages.length === 0) return;
-
-  image.src = galleryImages[galleryIndex];
-  count.textContent = (galleryIndex + 1) + ' / ' + galleryImages.length;
-}
-
-function openProject(card) {
-  if (!modal) return;
-
-  var image = modal.querySelector('.modal__img');
-  var title = modal.querySelector('#modal-title');
-  var meta = modal.querySelector('#modal-meta');
-  var description = modal.querySelector('#modal-desc');
-  var closeButton = modal.querySelector('.modal__close');
-  var websiteButton = modal.querySelector('.modal__website');
-  var prevButton = modal.querySelector('.modal__prev');
-  var nextButton = modal.querySelector('.modal__next');
-  var galleryControls = modal.querySelector('.modal__gallery-controls');
-
-  title.textContent = card.dataset.title || 'Project';
-  meta.textContent = card.dataset.meta || '';
-  description.textContent = card.dataset.desc || '';
-
-  var mainImage = card.dataset.img || (card.querySelector('img') ? card.querySelector('img').src : '');
-  var extraImages = (card.dataset.images || '')
-    .split(',')
-    .map(function (src) { return src.trim(); })
-    .filter(Boolean)
-    .slice(0, 4);
-
-  galleryImages = [mainImage].concat(extraImages).filter(Boolean);
-  galleryIndex = 0;
-  showGalleryImage();
-
-  if (galleryImages.length > 1) {
-    galleryControls.hidden = false;
-    prevButton.hidden = false;
-    nextButton.hidden = false;
-  } else {
-    galleryControls.hidden = true;
-    prevButton.hidden = true;
-    nextButton.hidden = true;
-  }
-
-  if (card.dataset.website) {
-    websiteButton.hidden = false;
-    websiteButton.dataset.url = card.dataset.website;
-  } else {
-    websiteButton.hidden = true;
-    websiteButton.removeAttribute('data-url');
-  }
-
-  image.alt = card.dataset.title || 'Project image';
-  previousFocus = document.activeElement;
-  modal.hidden = false;
-  document.body.classList.add('no-scroll');
-
-  if (closeButton) closeButton.focus();
-}
-
-if (modal) {
-  modal.querySelector('.modal__prev').addEventListener('click', function () {
-    galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
-    showGalleryImage();
-  });
-
-  modal.querySelector('.modal__next').addEventListener('click', function () {
-    galleryIndex = (galleryIndex + 1) % galleryImages.length;
-    showGalleryImage();
-  });
-
-  modal.querySelector('.modal__website').addEventListener('click', function () {
-    var url = this.dataset.url;
-    if (!url) return;
-
-    var confirmed = window.confirm('Open this link in a new tab?');
-    if (confirmed) {
-      window.open(url, '_blank', 'noopener,noreferrer');
-    }
-  });
-}
-
-      
-
-      activate(validStartingTab ? startingTab : 'home', false);
+      var hashTab = window.location.hash.slice(1);
+      activate(panels.some(function (panel) { return panel.id === hashTab; }) ? hashTab : 'home', false);
     })();
   </script>
-
-  <footer class="colophon">
-    <span>© 2026 Isa Dagostino</span>
-  </footer>
-
-  <!-- Keep your project modal and tab-navigation script here. -->
 </body>
 </html>
