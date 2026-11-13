@@ -34,33 +34,6 @@ function typeWriter() {
   }
 }
 
-    <button class="magnetic-btn">View Work</button>
-
-    const btn = document.querySelector('.magnetic-btn');
-
-btn.addEventListener('mousemove', (e) => {
-  const rect = btn.getBoundingClientRect();
-  const x = e.clientX - rect.left - rect.width / 2;
-  const y = e.clientY - rect.top - rect.height / 2;
-
-//Button moves
-  btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
-});
-
-btn.addEventListener('mouseleave', () => {
-  
-  // Reset position
-  btn.style.transform = 'translate(0px, 0px)';
-});
-
-
-// Start when page loads
-window.onload = typeWriter;
-
-  </script>
-</body>
-
-
   <div class="desk">
     <div class="desk__grain" aria-hidden="true"></div>
 
@@ -272,7 +245,7 @@ window.onload = typeWriter;
               <span class="rule" aria-hidden="true"></span>
             </div>
             <div class="grid">
-              <button class="card" type="button" data-title="Script One" data-meta="Feature · Drama · 2025" data-desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Logline, role and outcome go here. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." data-img="screen-1.jpg">
+              < class="card" type="button" data-title="Script One" data-meta="Feature · Drama · 2025" data-desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Logline, role and outcome go here. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." data-img="screen-1.jpg">
                 <img src="screen-1.jpg" alt="" width="800" height="600">
                 <span class="card__body"><strong>Script One</strong><span>Feature · Drama</span></span>
               </button>
@@ -405,6 +378,30 @@ window.onload = typeWriter;
             </div>
           </div>
         </section>
+
+        <button class="magnetic-btn">View Work</button>
+
+    const btn = document.querySelector('.magnetic-btn');
+
+btn.addEventListener('mousemove', (e) => {
+  const rect = btn.getBoundingClientRect();
+  const x = e.clientX - rect.left - rect.width / 2;
+  const y = e.clientY - rect.top - rect.height / 2;
+
+//Button moves
+  btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+});
+
+btn.addEventListener('mouseleave', () => {
+  
+  // Reset position
+  btn.style.transform = 'translate(0px, 0px)';
+});
+    
+window.onload = typeWriter;
+
+  </script>
+</body>
 
         <footer class="colophon">
           <span>© 2026 Isa Dagostino</span>
