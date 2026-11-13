@@ -282,7 +282,7 @@ h3 { font-size: clamp(1.05rem, 0.95rem + 0.45vw, 1.3rem); }
 
 .skills-heading {
   font-family: 'Georgia', serif; /* Matches your "Nice to meet you" heading */
-  font-size: 1.5rem;
+  font-size: 1rem;
   color: #4a3c3c; /* Dark brown */
   margin-bottom: 30px;
   font-weight: 700;
@@ -291,7 +291,7 @@ h3 { font-size: clamp(1.05rem, 0.95rem + 0.45vw, 1.3rem); }
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 30px;
+  gap: 20px;
 }
 
 .skill-item {
@@ -311,7 +311,7 @@ h3 { font-size: clamp(1.05rem, 0.95rem + 0.45vw, 1.3rem); }
 
 .skill-label {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.65rem;
   font-weight: 600;
   color: #b09e6f; /* Muted gold/tan from your existing categories */
   letter-spacing: 0.1em; /* Matches the "HOME" and category tracking */
