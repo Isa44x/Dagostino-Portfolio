@@ -16,6 +16,32 @@ n<!DOCTYPE html>
 </head>
 <body>
 
+  <body>
+  <h1 id="typewriter-name"></h1>
+  
+  <script>
+const text = "Isa Dagostino";
+const speed = 150; // Speed in milliseconds
+let i = 0;
+
+function typeWriter() {
+  if (i < text.length) {
+    document.getElementById("typewriter-name").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  } else {
+    // Add a blinking cursor at the end
+    document.getElementById("typewriter-name").innerHTML += '<span style="animation: blink 1s infinite">|</span>';
+  }
+}
+
+// Start when the page loads
+window.onload = typeWriter;
+
+  </script>
+</body>
+
+
   <div class="desk">
     <div class="desk__grain" aria-hidden="true"></div>
 
