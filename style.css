@@ -44,6 +44,18 @@ body {
   50% { opacity: 0; }
 }
 
+.magnetic-btn {
+  padding: 15px 30px;
+  background-color: #9D00FF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: transform 0.2s ease-out; /* Smooth movement */
+  position: relative;
+  cursor: pointer;
+}
+
 body.no-scroll { overflow: hidden; }
 
 img { max-width: 100%; height: auto; display: block; }
