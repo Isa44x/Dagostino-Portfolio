@@ -51,7 +51,7 @@ body {
   border: none;
   border-radius: 5px;
   font-size: 16px;
-  transition: transform 0.2s ease-out; /* Smooth movement */
+  transition: transform 0.2s ease-out;
   position: relative;
   cursor: pointer;
 }
@@ -163,7 +163,6 @@ h3 { font-size: clamp(1.05rem, 0.95rem + 0.45vw, 1.3rem); }
   color: rgba(250, 246, 238, 0.85);
 }
 
-/* cutout sits on the strip's bottom edge, overlapping the name */
 .hero__cutout {
   position: absolute;
   right: 6rem;
@@ -276,14 +275,14 @@ h3 { font-size: clamp(1.05rem, 0.95rem + 0.45vw, 1.3rem); }
 
 /* ---------- Skills section ---------- */
 .skills-section {
-  margin: 60px 0; /* Spacing to separate from buttons and projects */
+  margin: 60px 0;
   text-align: left;
 }
 
 .skills-heading {
-  font-family: 'Georgia', serif; /* Matches your "Nice to meet you" heading */
+  font-family: 'Georgia', serif;
   font-size: 1rem;
-  color: #4a3c3c; /* Dark brown */
+  color: #4a3c3c;
   margin-bottom: 30px;
   font-weight: 700;
 }
@@ -302,19 +301,19 @@ h3 { font-size: clamp(1.05rem, 0.95rem + 0.45vw, 1.3rem); }
 }
 
 .skill-icon {
-  width: 24px; /* Reduced from 32px */
+  width: 20px;
   height: 24px;
-  color: #9D00FF;
-  stroke: #9D00FF;
-  flex-shrink: 0; /* Prevents the icon from being squished */
+  color: #4D3339;
+  stroke: #4D3339;
+  flex-shrink: 0;
 }
 
 .skill-label {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 0.65rem;
   font-weight: 600;
-  color: #b09e6f; /* Muted gold/tan from your existing categories */
-  letter-spacing: 0.1em; /* Matches the "HOME" and category tracking */
+  color: #b09e6f;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
