@@ -57,10 +57,10 @@
               <p class="lede">Designer and storyteller with experience spanning many fields. Intentional, professional design, no matter the media, is my passion.</p>
 
               <div class="cover__actions">
-                <a class="btn" href="#portfolio" data-goto="portfolio">View work</a>
-                <a class="btn btn--ghost" href="#contact" data-goto="contact">Get in touch</a>
-              </div>
-
+  <a class="btn" href="#portfolio" data-goto="portfolio" data-fireworks>View work</a>
+  <a class="btn btn--ghost" href="#contact" data-goto="contact">Get in touch</a>
+</div>
+              
               <!-- Skills Section -->
               <div class="skills-section">
                 <div class="skills-grid">
@@ -380,8 +380,6 @@
           </div>
         </section>
 
-        <button class="magnetic-btn">View Work</button>
-      </div>
     </main>
   </div>
 
@@ -421,24 +419,44 @@
       }
     }
 
-    const btn = document.querySelector('.magnetic-btn');
-    if (btn) {
-      btn.addEventListener('mousemove', (e) => {
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
-      });
-
-      btn.addEventListener('mouseleave', () => {
-        btn.style.transform = 'translate(0px, 0px)';
-      });
-    }
 
     window.onload = typeWriter;
   </script>
 
   <script>
+    function launchFireworks(button) {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var rect = button.getBoundingClientRect();
+  var burst = document.createElement('span');
+  burst.className = 'fireworks-burst';
+  burst.setAttribute('aria-hidden', 'true');
+  burst.style.left = (rect.left + rect.width / 2) + 'px';
+  burst.style.top = (rect.top + rect.height / 2) + 'px';
+
+  for (var i = 0; i < 12; i++) {
+    var particle = document.createElement('i');
+    var angle = (Math.PI * 2 * i) / 12;
+    var distance = 28 + Math.random() * 32;
+
+    particle.style.setProperty('--dx', Math.cos(angle) * distance + 'px');
+    particle.style.setProperty('--dy', Math.sin(angle) * distance + 'px');
+    particle.style.setProperty('--hue', Math.round(Math.random() * 360));
+    burst.appendChild(particle);
+  }
+
+  document.body.appendChild(burst);
+  window.setTimeout(function () { burst.remove(); }, 750);
+}
+
+[].slice.call(document.querySelectorAll('[data-goto]')).forEach(function (b) {
+  b.addEventListener('click', function (e) {
+    e.preventDefault();
+    if (b.hasAttribute('data-fireworks')) launchFireworks(b);
+    activate(b.dataset.goto, true);
+  });
+});
+    
     (function () {
       /* ---------- Tabs ---------- */
       var tabs = [].slice.call(document.querySelectorAll('.tab'));
