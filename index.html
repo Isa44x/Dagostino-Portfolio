@@ -550,5 +550,69 @@ function launchFireworks(button) {
     })();
   </script>
 
+  <!-- The Modal/Popup -->
+<div id="project-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    
+    <!-- Main Large Image -->
+    <img class="modal-main-img" src="https://via.placeholder.com/800x450" alt="Project Main">
+    
+    <!-- Thumbnail Selection -->
+    <div class="modal-thumbnails">
+      <img src="https://via.placeholder.com/150" class="thumb active" onclick="changeImage(this)">
+      <img src="https://via.placeholder.com/150" class="thumb" onclick="changeImage(this)">
+      <img src="https://via.placeholder.com/150" class="thumb" onclick="changeImage(this)">
+    </div>
+    
+    <!-- Project Details -->
+    <div class="modal-details">
+      <h3>Project Title</h3>
+      <p>A brief description of the project goes here.</p>
+    </div>
+  </div>
+</div>
+
+  // Select elements
+const modal = document.getElementById("project-modal");
+const closeBtn = document.querySelector(".close-btn");
+const mainImg = document.getElementById("modal-main-img");
+const thumbs = document.querySelectorAll(".thumb");
+
+// Function to open modal
+function openModal(title, desc, mainSrc, thumb1, thumb2, thumb3) {
+  document.getElementById("modal-title").innerText = title;
+  document.getElementById("modal-desc").innerText = desc;
+  mainImg.src = mainSrc;
+  
+  // Set thumbnails
+  thumbs[0].src = thumb1;
+  thumbs[1].src = thumb2;
+  thumbs[2].src = thumb3;
+  
+  // Reset active state
+  thumbs.forEach(t => t.classList.remove('active'));
+  thumbs[0].classList.add('active');
+
+  modal.style.display = "block";
+}
+
+// Function to swap images
+function changeImage(thumb) {
+  mainImg.src = thumb.src;
+  thumbs.forEach(t => t.classList.remove('active'));
+  thumb.classList.add('active');
+}
+
+// Close modal
+closeBtn.onclick = function() {
+  modal.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+  
 </body>
 </html>
