@@ -305,7 +305,7 @@ h3 { font-size: clamp(1.05rem, 0.95rem + 0.45vw, 1.3rem); }
 
 /* ---------- Featured projects on home ---------- */
 .featured {
-  margin-top: 1.5rem;
+  margin-top: 2.2rem;
   padding-top: 1.25rem;
   border-top: 1px solid rgba(77, 51, 57, 0.15);
 }
