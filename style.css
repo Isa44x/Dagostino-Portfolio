@@ -819,8 +819,8 @@ h3 { font-size: clamp(1.05rem, 0.95rem + 0.45vw, 1.3rem); }
 
 .modal__box {
   position: relative;
-  width: min(720px, 100%);
-  max-height: 88vh;
+  width: min(1000px, 100%);
+  max-height: 94vh;
   overflow-y: auto;
   background: var(--paper);
   border-radius: var(--radius);
@@ -829,17 +829,14 @@ h3 { font-size: clamp(1.05rem, 0.95rem + 0.45vw, 1.3rem); }
   animation: pop 0.2s ease both;
 }
 
-@keyframes pop {
-  from { opacity: 0; transform: translateY(10px) scale(0.985); }
-  to   { opacity: 1; transform: none; }
-}
-
 .modal__img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  background: var(--beige);
   display: block;
+  width: 100%;
+  height: auto;
+  max-height: 68vh;
+  aspect-ratio: auto;
+  object-fit: contain;
+  background: var(--beige);
 }
 
 .modal__body { padding: clamp(1.5rem, 3.5vw, 2.5rem); }
