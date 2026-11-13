@@ -148,7 +148,7 @@ h3 { font-size: clamp(1.05rem, 0.95rem + 0.45vw, 1.3rem); }
 
 .hero__cutout {
   position: absolute;
-  right: 2rem;
+  right: 0rem;
   bottom: 0;
   margin: 0;
   height: clamp(150px, 22vw, 300px);
