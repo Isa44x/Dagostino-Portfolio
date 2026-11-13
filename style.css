@@ -302,10 +302,11 @@ h3 { font-size: clamp(1.05rem, 0.95rem + 0.45vw, 1.3rem); }
 }
 
 .skill-icon {
-  width: 32px;
-  height: 32px;
-  color: #9D00FF; /* Your magenta accent */
+  width: 24px; /* Reduced from 32px */
+  height: 24px;
+  color: #9D00FF;
   stroke: #9D00FF;
+  flex-shrink: 0; /* Prevents the icon from being squished */
 }
 
 .skill-label {
