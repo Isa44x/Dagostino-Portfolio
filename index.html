@@ -11,13 +11,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
+
+    .modal__box:has(.modal__img[src="groundhog.png"]) .modal__img {
+  width: 40%;
+  max-height: 27vh;
+  margin-inline: auto;
+}
     
-.services-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(150px, 0.55fr); gap: 2rem; align-items: end; }
-.services-portrait { width: min(100%, 520px); max-height: 860px; object-fit: contain; object-position: bottom right; justify-self: end; align-self: end; }
+.services-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(150px, 0.55fr);
+  gap: 2rem;
+  align-items: end;
+}
+
+.services-portrait {
+  /* Keep your current width and max-height values here. */
+  transform: translateY(1in);
+}
 
 @media (max-width: 680px) {
   .services-layout { grid-template-columns: 1fr; }
-  .services-portrait { width: min(100%, 360px); max-height: 600px; justify-self: center; }
+  .services-portrait { transform: none; }
 }
 
 .facts > div {
@@ -167,7 +182,7 @@
               <button class="card" type="button" data-title="Feature Article Cover" data-meta="Graphic design · 2024" data-desc="Vector feature article cover of a snow leopard, entitled ‘Ghost Cat’." data-img="snowleopard.png"><img src="snowleopard.png" alt="Snow leopard feature article cover" width="800" height="600"><span class="card__body"><strong>‘Ghost Cat’ Cover</strong><span>Feature article cover, made in Illustrator.</span></span></button>
               <button class="card" type="button" data-title="Eden Harbor Catalogue" data-meta="Graphic design · InDesign" data-desc="Multi-page catalogue advertising boats for a mock company." data-img="Eden1.png" data-images="eden2.png,eden3.png,eden4.png"><img src="Eden1.png" alt="Eden Harbor catalogue cover" width="800" height="600"><span class="card__body"><strong>Eden Harbor Catalogue</strong><span>Four-page project · InDesign</span></span></button>
               <button class="card" type="button" data-title="Sideshow Concert Poster" data-meta="Graphic design · InDesign" data-desc="Mock concert poster made in InDesign." data-img="chappell.png"><img src="chappell.png" alt="Sideshow concert poster" width="800" height="600"><span class="card__body"><strong>‘Sideshow’ Concert Poster</strong><span>Mock concert poster</span></span></button>
-              <button class="card" type="button" data-title="Digital Studies Brochure" data-meta="Graphic design · InDesign" data-desc="Digital Studies brochure made using InDesign." data-img="digi1.png"><img src="digi1.png" alt="Digital Studies brochure" width="800" height="600"><span class="card__body"><strong>Digital Studies Brochure</strong><span>Made using InDesign</span></span></button>
+              <button class="card" type="button" data-title="Digital Studies Brochure" data-meta="Graphic design · InDesign" data-desc="Digital Studies brochure made using InDesign." data-img="digi1.png" data-images="digi2.png"><img src="digi1.png" alt="Digital Studies brochure" width="800" height="600"><span class="card__body"><strong>Digital Studies Brochure</strong><span>Made using InDesign</span></span></button>
               <button class="card" type="button" data-title="Groundhog Coffee Logo" data-meta="Brand identity" data-desc="Groundhog Coffee logo designed as a vector using Google Slides." data-img="groundhog.png"><img src="groundhog.png" alt="Groundhog Coffee logo" width="800" height="600"><span class="card__body"><strong>Groundhog Coffee Logo</strong><span>Vector identity</span></span></button>
               <button class="card" type="button" data-title="Sprucehead Seafood Logo" data-meta="Brand identity" data-desc="Simplified black-and-white logo variations for varied use." data-img="sprucehead.png"><img src="sprucehead.png" alt="Sprucehead Seafood logo" width="800" height="600"><span class="card__body"><strong>Sprucehead Seafood Logo</strong><span>Logo variations</span></span></button>
             </div>
