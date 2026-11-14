@@ -37,9 +37,23 @@
 
 .facts > div {
   display: grid;
-  grid-template-columns: minmax(6.5rem, 8rem) minmax(0, 1fr);
-  align-items: start;
-  column-gap: .75rem;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+.facts dt { min-width: 0; }
+
+/* Cliffs of Moher photo: smaller and aligned to the top of the text */
+#about .pair__figure {
+  width: min(85%, 440px);
+  justify-self: center;
+  align-self: start;
+}
+
+/* D.C. mural photo (shot--f): display at about half size */
+#about .shot--f img {
+  width: 50%;
+  margin-inline: auto;
 }
 
 .facts dt { min-width: 0; }
@@ -227,7 +241,7 @@
           <section class="group" aria-labelledby="g-other"><div class="group__head"><h3 id="g-other">Other</h3><span class="rule" aria-hidden="true"></span></div>
             <div class="grid">
               <button class="card" type="button" data-title="Mural Project One" data-meta="Community art" data-desc="Collaborative mural project." data-img="mural1.png"><img src="mural1.png" alt="Mural project one" width="800" height="600"><span class="card__body"><strong>Capitol Building Mural</strong><span>Community art, 2022</span></span></button>
-              <button class="card" type="button" data-title="Mural Project Two" data-meta="Community art" data-desc="Collaborative mural project." data-img="mural2.png"><img src="mural2.png" alt="Mural project two" width="800" height="600"><span class="card__body"><strong>Fraternity Crest Mural><span>Freelance, 2024</span></span></button>
+              <button class="card" type="button" data-title="Mural Project Two" data-meta="Community art" data-desc="Collaborative mural project." data-img="mural2.png"><img src="mural2.png" alt="Mural project two" width="800" height="600"><span class="card__body"><strong>Crest Mural><span>Freelance, 2024</span></span></button>
               <button class="card" type="button" data-title="Mural Project Three" data-meta="Community art" data-desc="Collaborative mural project." data-img="mural3.png"><img src="mural3.png" alt="Mural project three" width="800" height="600"><span class="card__body"><strong>Distorted Flag Mural</strong><span>Freelance, 2024</span></span></button>
               <button class="card" type="button" data-title="Creative Branding Collection" data-meta="Branding and visual design" data-desc="A collection of brand identity and visual design work." data-img="groundhog.png" data-images="sprucehead.png,digi1.png,digi2.png"><img src="groundhog.png" alt="Creative branding project preview" width="800" height="600"><span class="card__body"><strong>Creative Branding for HyperGoat Coffee</strong><span>Four-image collection showing brand guide, revised logo, merchandise, and product packaging designs.</span></span></button>
             </div>
@@ -245,7 +259,7 @@
               <li><h3>Video Production &amp; Broadcast</h3><p>Directing, camera, editing, post-production, and broadcast roles.</p></li>
               <li><h3>Content Strategy</h3><p>Social media management, campaigns, and online presence.</p></li>
             </ul>
-            <img class="services-portrait" src="Isab.png" alt="Illustration of Isa working on a laptop" loading="lazy">
+            <img class="services-portrait" src="isab.png" alt="Illustration of Isa working on a laptop" loading="lazy">
           </div>
         </section>
 
