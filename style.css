@@ -265,6 +265,33 @@ h3 { font-size: clamp(1.05rem, 0.95rem + 0.45vw, 1.3rem); }
   text-align: left;
 }
 
+/* Keep cards from stretching to fill the whole row */
+.grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 320px));
+}
+
+/* Display the Grow with the Flow poster at a smaller size in its modal */
+.modal__box:has(.modal__img[src="grow-poster.png"]) .modal__img {
+  width: 60%;
+  max-height: 60vh;
+  margin-inline: auto;
+  object-fit: contain;
+}
+
+.modal__gallery-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+}
+
+.modal__website,
+.modal__body #drive-link {
+  display: block;
+  margin: 1rem auto 0;
+}
+
 .skills-heading {
   font-family: 'Georgia', serif;
   font-size: 1rem;
