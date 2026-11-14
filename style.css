@@ -39,7 +39,3 @@
   height: 220px;
   object-fit: cover;
 }
-.grid > .card:last-child {
-  grid-column: 1;
-  justify-self: stretch;
-}
